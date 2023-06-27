@@ -1,0 +1,30 @@
+{
+  "name": "gulp-wordpress-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sorokovsky/gulp-typescript-theme.git"
+  },
+  "author": "Andrey Sorokovsky <Sorokovskys@ukr.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sorokovsky/gulp-typescript-theme/issues"
+  },
+  "homepage": "https://github.com/Sorokovsky/gulp-typescript-theme#readme",
+  "dependencies": {
+    "@types/node": "^20.3.2",
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/browser-sync": "^2.27.0",
+    "@types/gulp": "^4.0.12",
+    "del": "^7.0.0"
+  }
+}
