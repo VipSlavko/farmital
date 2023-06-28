@@ -1,29 +1,33 @@
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
-const srcFolder = `./#src`;
-const buildFolder = `./${rootFolder}`;
+const buildFolder = `./docs`;
+const srcFolder = `./src`;
 export const path = {
-    buildFolder,
-    srcFolder,
-    src: {
-        html: `${srcFolder}/*.{html,php}`,
-        sass: `${srcFolder}/assets/sass/style.sass`,
-        js: `${srcFolder}/assets/js/script.js`,
-        fonts: `${srcFolder}/assets/fonts/**/*.*`,
-        img: `${srcFolder}/assets/img/**/*.{png,gif,jpg,svg,jpeg,webp,mp4}`
-    },
     build: {
+        js: `${buildFolder}/js/`,
         html: `${buildFolder}/`,
-        css: `${buildFolder}/assets/sass/style.sass`,
-        js: `${buildFolder}/assets/js/script.js`,
-        fonts: `${buildFolder}/assets/fonts/`,
-        img: `${buildFolder}/assets/img/`
+        css: `${buildFolder}/css/`,
+        images: `${buildFolder}/img/`,
+        files: `${buildFolder}/`,
+        fonts: `${buildFolder}/fonts/`
+    },
+    src: {
+        js: `${srcFolder}/js/script.js`,
+        files: `${srcFolder}/*.*`,
+        svg: `${srcFolder}/img/**/*.svg`,
+        html: `${srcFolder}/**/*.{html,php}`,
+        images: `${srcFolder}/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
+        sass: `${srcFolder}/sass/style.sass`,
+        svgicons: `${srcFolder}/svgicons/*.svg`,
     },
     watch: {
-        html: `${srcFolder}/*.{html,php}`,
-        sass: `${srcFolder}/assets/sass/**/*.sass`,
-        js: `${srcFolder}/assets/js/**/*.sass`,
-        fonts: `${srcFolder}/assets/fonts/**/*.*`,
-        img: `${srcFolder}/assets/img/**/*.{png,gif,jpg,svg,jpeg,webp,mp4}`
+        js: `${srcFolder}/js/**/*.js`,
+        sass: `${srcFolder}/sass/**/*.sass`,
+        html: `${srcFolder}/**/*.{html,php}`,
+        files: `${srcFolder}/*.*`,
+        images: `${srcFolder}/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
     },
-};
+    clean: buildFolder,
+    srcFolder: srcFolder,
+    rootFolder: rootFolder,
+}
