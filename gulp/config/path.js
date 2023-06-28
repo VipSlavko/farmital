@@ -4,28 +4,28 @@ const buildFolder = `./docs`;
 const srcFolder = `./src`;
 export const path = {
     build: {
-        js: `${buildFolder}/js/`,
+        js: `${buildFolder}/assets/js/`,
         html: `${buildFolder}/`,
-        css: `${buildFolder}/css/`,
-        images: `${buildFolder}/img/`,
+        css: `${buildFolder}/assets/css/`,
+        images: `${buildFolder}/assets/img/`,
         files: `${buildFolder}/`,
-        fonts: `${buildFolder}/fonts/`
+        fonts: `${buildFolder}/assets/fonts/`
     },
     src: {
-        js: `${srcFolder}/js/script.js`,
+        js: `${srcFolder}/assets/js/script.js`,
         files: `${srcFolder}/*.*`,
-        svg: `${srcFolder}/img/**/*.svg`,
+        svg: `${srcFolder}/assets/img/**/*.svg`,
         html: `${srcFolder}/**/*.{html,php}`,
-        images: `${srcFolder}/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
-        sass: `${srcFolder}/sass/style.sass`,
-        svgicons: `${srcFolder}/svgicons/*.svg`,
+        images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
+        sass: `${srcFolder}/assets/sass/style.sass`,
+        svgicons: `${srcFolder}/assets/svgicons/*.svg`,
     },
     watch: {
-        js: `${srcFolder}/js/**/*.js`,
-        sass: `${srcFolder}/sass/**/*.sass`,
-        html: `${srcFolder}/**/*.{html,php}`,
+        js: `${srcFolder}/assets/js/**/*.js`,
+        sass: `${srcFolder}/assets/sass/**/*.sass`,
+        html: `${srcFolder}/*.{html,php}`,
         files: `${srcFolder}/*.*`,
-        images: `${srcFolder}/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
+        images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
     },
     clean: buildFolder,
     srcFolder: srcFolder,

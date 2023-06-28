@@ -8,7 +8,7 @@ import groupCssMediaQueries from 'gulp-group-css-media-queries';
 const sasss = gulpSass(dartSass);
 export const sass = () => {
     return app.gulp.src(app.path.src.sass, {sourcemaps: true})
-        .pipe(app.plugins.replace(/@img\//g, '../img/'))
+        .pipe(app.plugins.replace(/@assets\/img\//g, '../img/'))
         .pipe(sasss({
             outputStyle: 'expanded'
         }))
