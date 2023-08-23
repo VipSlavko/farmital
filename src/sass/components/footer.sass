@@ -1,0 +1,73 @@
+footer
+    background-color: #f0f0f0
+    padding: 30px 0
+
+.footer>div
+    border-right: 2px solid #109852
+    padding-right: 55px
+
+.footer>div:last-child
+    border: none
+
+.footer
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+footer td a
+    font: 500 14px "Montserrat"
+    text-transform: uppercase
+    color: #191919
+    text-align: center
+
+footer td a:hover
+    color: #109852
+
+footer td
+    padding: 5px 
+
+.messengers
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+.icon
+    display: inline-block
+    margin: 5px
+    &::before
+        display: inline-block
+        width: 100%
+        height: 100%
+
+.telegram::before
+    content: ""
+    background: url('../img/tel.png') no-repeat center center
+    background-size: cover
+    width: 30px
+    height: 25px
+
+.viber::before
+    content: ""
+    background: url('../img/viber.png') no-repeat center center
+    background-size: cover
+    width: 27px
+    height: 29px
+
+.url
+    position: relative
+    &:before
+        content: url(../img/mail.png)
+        position: absolute
+        top: 0
+        left: -35px
+
+.copyright
+    display: flex
+    flex-direction: column
+    align-items: self-end
+    p 
+        font: 500 14px "Montserrat"
+        color: #191919
+        text-align: center
+
