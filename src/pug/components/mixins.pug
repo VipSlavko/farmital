@@ -1,0 +1,27 @@
+-
+    let cards = {
+        Nicetile: {
+            src: "img/kit.jpg",
+            alt: "kit",
+            name: "Ніцетіл, Ницетил - (Nicetile), саше",
+            code: "247589",
+            producer: "Італія",
+            price: "1180 грн/уп",
+            href: "#",
+        }
+    }
+
+mixin oneCard (item)
+    figure.card
+        figcaption 
+            .cardimg
+                .images
+                    img(src=item.src, alt=item.alt)
+                p.card-name= item.name
+                p.text-code код товару: 
+                    p.code= item.code
+                p.text-producer Виробник:
+                    p.producer= item.producer
+                .stick
+                p.price= item.price 
+                a(href=item.href).btn у кошик 
