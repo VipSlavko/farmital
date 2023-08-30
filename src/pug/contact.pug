@@ -1,0 +1,50 @@
+include components/mixins
+
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Інтернет-Аптека Фарміталь продаж ліків, ліки на замовлення з Італії
+        link(rel="stylesheet", href="./css/styles.css")
+    body
+        // h1 Інтернет-Аптека FarmItal Контакти
+        include components/header
+
+        main 
+            .wrapper 
+                .contacts-h1-block
+                    h1.contacts-h1 Контакти
+                .contact-block
+                    .left-block
+                        .background-left-block
+                            p.contacts-people Контактні особи:
+                            p.volodya-i-katuha Володимир та Катерина
+                            p.hours-of-work Години роботи:
+                            p.hours ПН-НД 8:00-18:00
+                            p.telephones Телефони:
+                                ul.con-list
+                                    li +38(097) 930-17-88
+                                    li +38(095) 937-16-99
+                                    li +38(063) 129-40-99
+                            p.email-text Електронна пошта:
+                            p.emails likital687@gmail.com
+                            p.mesengers Месенджери:
+                            img(src="./img/viber.png", alt="logo").con-logo
+                            img(src="./img/tel.png", alt="logo").con-logo
+                            img(src="./img/whats up.png", alt="logo").con-logo
+                    .right-block
+                        h2.con-h2 Напишіть нам
+                        form(action="").con-form
+                            p.your-name Ваше імʼя 
+                            input(type="text", name="name").form-textffff
+                            p.your-email Електронна пошта
+                            input(type="email", name="name").email-form
+                            p.com Коментар
+                            input(type="textarea", name="name").textarea
+                            input(type="submit", value="відправити").sub-con
+
+
+
+        include components/footer.pug

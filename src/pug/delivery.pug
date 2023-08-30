@@ -1,0 +1,33 @@
+include components/mixins
+
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Інтернет-Аптека Фарміталь продаж ліків, ліки на замовлення з Італії
+        link(rel="stylesheet", href="./css/styles.css")
+    body
+        // h1 Інтернет-Аптека FarmItal Контакти
+        include components/header
+
+        main 
+            .wrapper
+                h1.h-del Доставка
+                .new-postal-block 
+                    .image-left 
+                        img(src="./img/nova-poshta.png", alt="new postal").del-image
+                    .text-right
+                        h2.free-del Безкоштовна доставка від 2000 грн
+                        p.text-del 1. Вартість доставки замовлень до 2000 грн - за тарифами НП;
+                        p.text-del 2. Ми зберемо та відправимо ваше замовлення в максимально короткий строк.
+                .payment 
+                    h3.h-del Оплата
+                    p.pay-text Замовлення можна оплатити при оформленні банківською карткою, , а також можна обрати Післяоплату при отриманні на останньому кроці оформлення замовлення. Додаткових доплат та комісій за переказ коштів Ви не сплачуєте – лише суму замовлення.
+                    p.pay-text Оплата готівкою (накладений платіж) в пункті самовивозу транспортної компанії, або кур'єру служби доставки.
+                    p.pay-text Оплата на рахунок у банку (після оформлення замовлення через сайт, ми уточнимо наявність всього товару і відправимо на вказаний Вами номер телефону номер рахунку і точну суму до оплати).
+
+
+
+        include components/footer.pug
