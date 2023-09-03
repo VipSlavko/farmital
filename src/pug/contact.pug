@@ -31,20 +31,17 @@ html(lang="uk")
                             p.email-text Електронна пошта:
                             p.emails likital687@gmail.com
                             p.mesengers Месенджери:
-                            img(src="./img/viber.png", alt="logo").con-logo
-                            img(src="./img/tel.png", alt="logo").con-logo
-                            img(src="./img/whats up.png", alt="logo").con-logo
+                            img.con-logo(src="./img/viber.png", alt="logo")
+                            img.con-logo(src="./img/tel.png", alt="logo")
+                            img.con-logo(src="./img/whats up.png", alt="logo")
                     .right-block
                         h2.con-h2 Напишіть нам
-                        form(action="").con-form
+                        form.con-form(action="")
                             p.your-name Ваше імʼя 
-                            input(type="text", name="name").form-textffff
+                            input.form-text(type="text", name="name")
                             p.your-email Електронна пошта
-                            input(type="email", name="name").email-form
+                            input.email-form(type="email", name="name")
                             p.com Коментар
-                            input(type="textarea", name="name").textarea
-                            input(type="submit", value="відправити").sub-con
-
-
-
+                            textarea.textarea(name="description", cols="30", rows="10") 
+                            input.sub-con(type="submit", value="відправити")
         include components/footer.pug

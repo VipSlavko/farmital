@@ -6,7 +6,9 @@
 
 html,
 body,
-ul
+ul,
+input,
+textarea
   margin: 0
   padding: 0
   font-family: "Montserrat"
@@ -37,7 +39,7 @@ ul
   font-size: 16px
   border: 2px solid #009146
   border-radius: 5px
-  width: 550px
+
 
 .sub-head
   padding: 6px 22px
@@ -173,68 +175,44 @@ a
   justify-content: center
 
 .info-mini-block
-  padding: 50px
+  position: relative
+  padding: 55px
   max-width: 360px
 
 .car
   &::before
-    content: ""
+    content: url(../img/car.png)
     position: absolute
-    width: 76px
-    height: 50px
-    background: 
-      image: url(../img/car.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
+    top: 55px
+    left: -40px
 
 .hands
   &::before
-    content: ""
+    content: url(../img/hands.png)
     position: absolute
-    width: 65px
-    height: 55px
-    background: 
-      image: url(../img/hands.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
+    top: 55px
+    left: -25px
 
 .plus
   &::before
-    content: ""
+    content: url(../img/plus.png)
     position: absolute
-    width: 55px
-    height: 55px
-    background: 
-      image: url(../img/plus.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
+    top: 55px
+    left: -20px
 
 .phone-plus
   &::before
-    content: ""
+    content: url(../img/tel-heart.png)
     position: absolute
-    width: 53px
-    height: 55px
-    background: 
-      image: url(../img/tel-heart.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
+    top: 55px
+    left: -20px
 
 .europe
   &::before
-    content: ""
+    content: url(../img/europ.png)
     position: absolute
-    width: 55px
-    height: 65px
-    background: 
-      image: url(../img/europ.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
+    top: 55px
+    left: -20px
 
 .top-of-sells-h4
   color: #009146
@@ -327,7 +305,7 @@ a
   padding-bottom: 100px
 
 .left-block
-  padding: 50px 0 50px 50px
+  padding: 30px 0 30px 30px
 
 .background-left-block
   padding: 50px 200px 50px 50px
@@ -375,7 +353,7 @@ a
   padding: 0 10px
 
 .right-block
-  padding: 30px 0 30px 30px
+  padding: 0 30px
   max-width: 500px
   border: 2px solid #009146
   border-radius: 5px
@@ -405,12 +383,10 @@ a
   border-radius: 5px
   width: 100%
 
-.con-form
-  padding-right: 50px
-
 .textarea
   width: 100%
   height: 200px
+  resize: none
   border: 2px solid #009146
   border-radius: 5px
   margin-bottom: 25px
@@ -467,5 +443,30 @@ a
   color: #191919
   font-weight: 400
 
+.form-text,
+.email-form
+  max-width: 450px
+  padding: 15px 0
 
+.crumbs p
+  display: inline-block
+  position: relative
+  font: 400 16px "Montserrat"
+  color: #191919
+  padding: 0 20px
+  a:hover
+    color: #009146
 
+.crumbs p:first-child
+  &::after
+    content: ""
+    position: absolute
+    border-top: 1px solid black
+    border-right: 1px solid black
+    rotate: 45deg
+    top: 4px
+    right: -3px
+    width: 8px
+    height: 8px
+
+  
