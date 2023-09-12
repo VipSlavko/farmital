@@ -6,7 +6,9 @@
 
 html,
 body,
-ul
+ul,
+input,
+textarea
   margin: 0
   padding: 0
   font-family: "Montserrat"
@@ -47,7 +49,7 @@ footer
   font-size: 16px
   border: 2px solid #009146
   border-radius: 5px
-  width: 550px
+
 
 .sub-head
   padding: 6px 22px
@@ -65,9 +67,7 @@ footer
     background-color: #067a3e
 
 .phone
-  font-size: 12px
-  font-weight: 400
-  font-family: "Montserrat"
+  font: 400 12px "Montserrat"
   text-align: center
   color: #191919
 
@@ -190,16 +190,23 @@ a
   justify-content: center
 
 .info-mini-block
+<<<<<<< HEAD
   padding: 50px 50px 50px 80px
   max-width: 150px
   position: relative
   +media(426)
     max-width: 360px
+=======
+  position: relative
+  padding: 55px
+  max-width: 360px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .car
   &::before
-    content: ""
+    content: url(../img/car.png)
     position: absolute
+<<<<<<< HEAD
     width: 76px
     height: 50px
     left: 1px
@@ -208,11 +215,16 @@ a
       position: center center
       repeat: no-repeat 
       size: cover
+=======
+    top: 55px
+    left: -40px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .hands
   &::before
-    content: ""
+    content: url(../img/hands.png)
     position: absolute
+<<<<<<< HEAD
     width: 65px
     height: 55px
     left: 7px
@@ -221,11 +233,16 @@ a
       position: center center
       repeat: no-repeat 
       size: cover
+=======
+    top: 55px
+    left: -25px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .plus
   &::before
-    content: ""
+    content: url(../img/plus.png)
     position: absolute
+<<<<<<< HEAD
     width: 55px
     height: 55px
     left: 10px
@@ -234,11 +251,16 @@ a
       position: center center
       repeat: no-repeat 
       size: cover
+=======
+    top: 55px
+    left: -20px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .phone-plus
   &::before
-    content: ""
+    content: url(../img/tel-heart.png)
     position: absolute
+<<<<<<< HEAD
     width: 53px
     height: 55px
     left: 10px
@@ -247,11 +269,16 @@ a
       position: center center
       repeat: no-repeat 
       size: cover
+=======
+    top: 55px
+    left: -20px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .europe
   &::before
-    content: ""
+    content: url(../img/europ.png)
     position: absolute
+<<<<<<< HEAD
     width: 55px
     height: 65px
     left: 10px
@@ -260,6 +287,10 @@ a
       position: center center
       repeat: no-repeat 
       size: cover
+=======
+    top: 55px
+    left: -20px
+>>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .top-of-sells-h4
   color: #009146
@@ -359,7 +390,7 @@ a
   padding-bottom: 100px
 
 .left-block
-  padding: 50px 0 50px 50px
+  padding: 30px 0 30px 30px
 
 .background-left-block
   padding: 50px 200px 50px 50px
@@ -407,7 +438,7 @@ a
   padding: 0 10px
 
 .right-block
-  padding: 30px 0 30px 30px
+  padding: 0 30px
   max-width: 500px
   border: 2px solid #009146
   border-radius: 5px
@@ -437,12 +468,10 @@ a
   border-radius: 5px
   width: 100%
 
-.con-form
-  padding-right: 50px
-
 .textarea
   width: 100%
   height: 200px
+  resize: none
   border: 2px solid #009146
   border-radius: 5px
   margin-bottom: 25px
@@ -503,6 +532,32 @@ a
   font-size: 20px
   color: #191919
   font-weight: 400
+
+.form-text,
+.email-form
+  max-width: 450px
+  padding: 15px 0
+
+.crumbs p
+  display: inline-block
+  position: relative
+  font: 400 16px "Montserrat"
+  color: #191919
+  padding: 0 20px
+  a:hover
+    color: #009146
+
+.crumbs p:first-child
+  &::after
+    content: ""
+    position: absolute
+    border-top: 1px solid black
+    border-right: 1px solid black
+    rotate: 45deg
+    top: 4px
+    right: -3px
+    width: 8px
+    height: 8px
 
 .top-info-nicetile
   padding: 70px 0

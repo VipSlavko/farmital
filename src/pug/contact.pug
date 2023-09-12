@@ -36,15 +36,12 @@ html(lang="uk")
                             img(src="./img/whats up.png", alt="logo").con-logo
                     //.right-block
                         h2.con-h2 Напишіть нам
-                        form(action="").con-form
+                        form.con-form(action="")
                             p.your-name Ваше імʼя 
-                            input(type="text", name="name").form-textffff
+                            input.form-text(type="text", name="name")
                             p.your-email Електронна пошта
-                            input(type="email", name="name").email-form
+                            input.email-form(type="email", name="name")
                             p.com Коментар
-                            input(type="textarea", name="name").textarea
-                            input(type="submit", value="відправити").sub-con
-
-
-
+                            textarea.textarea(name="description", cols="30", rows="10") 
+                            input.sub-con(type="submit", value="відправити")
         include components/footer.pug
