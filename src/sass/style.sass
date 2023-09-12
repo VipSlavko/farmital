@@ -13,7 +13,17 @@ ul
 
 .wrapper
   margin: 0 auto
-  max-width: 1240px
+  max-width: 1000px
+  +media(1025)
+    max-width: 1240px
+  +media(1441)
+    max-width: 1600px
+
+header,
+footer
+  display: none
+  +media(1025)
+    display: block
 
 .header-top,
 .header-bottom
@@ -140,17 +150,22 @@ a
 
 .banner-h1
   color: #009146
-  font-size: 45px
+  font-size: 25px
   font-weight: 600
   max-width: 800px
+  +media(426)
+    font-size: 45px
+
 
 .banner-text
   color: #191919
-  font-size: 25px
+  font-size: 16px
   font-weight: 400
   text-align: left
   display: inline-block
   max-width: 500px
+  +media(426)
+    font-size: 25px
 
 .info-h2
   font-size: 40px
@@ -175,8 +190,11 @@ a
   justify-content: center
 
 .info-mini-block
-  padding: 50px
-  max-width: 360px
+  padding: 50px 50px 50px 80px
+  max-width: 150px
+  position: relative
+  +media(426)
+    max-width: 360px
 
 .car
   &::before
@@ -184,6 +202,7 @@ a
     position: absolute
     width: 76px
     height: 50px
+    left: 1px
     background: 
       image: url(../img/car.png)
       position: center center
@@ -196,6 +215,7 @@ a
     position: absolute
     width: 65px
     height: 55px
+    left: 7px
     background: 
       image: url(../img/hands.png)
       position: center center
@@ -208,6 +228,7 @@ a
     position: absolute
     width: 55px
     height: 55px
+    left: 10px
     background: 
       image: url(../img/plus.png)
       position: center center
@@ -220,6 +241,7 @@ a
     position: absolute
     width: 53px
     height: 55px
+    left: 10px
     background: 
       image: url(../img/tel-heart.png)
       position: center center
@@ -232,6 +254,7 @@ a
     position: absolute
     width: 55px
     height: 65px
+    left: 10px
     background: 
       image: url(../img/europ.png)
       position: center center
@@ -251,15 +274,22 @@ a
 
 .card
   max-width: 300px
-  margin: 0 20px
+  margin: 20px
   padding: 20px 25px
   border: 2px solid #0e9750
   border-radius: 5px
+  +media(1180)
+    margin: 0 20px
+
 
 .card-name
   color: #0e9750
   font-weight: 600
   font-size: 20px
+
+.card-image
+  display: block
+  margin: 0 auto
 
 .text-code
   font-weight: 600
@@ -436,6 +466,7 @@ a
 
 .new-postal-block 
   display: flex
+  flex-wrap: wrap
   justify-content: center
   margin: 0 auto
   max-width: 700px
@@ -446,14 +477,18 @@ a
 
 .image-left 
   margin: 0 auto
-  padding-top: 60px
+  padding: 50px
+  +media(426)
+    padding-top: 60px
+
 
 .del-image
   width: 220px
 
 .text-right
   max-width: 300px
-  border-left: 2px solid #009146
+  +media(426)
+    border-left: 2px solid #009146
 
 .free-del
   margin: 0 15px 20px
@@ -462,7 +497,7 @@ a
   margin: 0 15px 15px
 
 .payment
-  padding-bottom: 50px
+  padding: 0 20px 20px 50px
 
 .pay-text
   font-size: 20px
@@ -472,6 +507,7 @@ a
 .top-info-nicetile
   padding: 70px 0
   display: flex
+  flex-wrap: wrap
   justify-content: center
 
 .left-image-nicetile 
@@ -479,7 +515,10 @@ a
 
 .right-info-nicetile
   max-width: 560px
-  padding: 0 0 0 50px 
+  padding: 10px 0 0 10px 
+  +media(1025)
+    padding: 0 0 0 50px 
+
 
 .image-nicetile
   display: block
@@ -527,14 +566,35 @@ a
   color: #191919
   font-weight: 600
   font-size: 25px
+  padding: 0 30px
+  +media(769)
+    padding: 0
+
+.top-h-nicetile
+  margin-bottom: 7px
+  color: #191919
+  font-weight: 600
+  font-size: 25px
 
 .text-nicetile
   margin: 5px 0
   color: #191919
   font-weight: 400
   font-size: 17px
+  padding: 0 30px
+  +media(769)
+    padding: 0
+
+.top-text-nicetile
+  margin: 5px 0
+  color: #191919
+  font-weight: 400
+  font-size: 17px
 
 .buy-block
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
   padding-top: 20px 
 
 .a-nicetile
@@ -543,15 +603,77 @@ a
   padding: 12px 120px
   border-radius: 5px
   font-size: 20px
+  margin-top: 20px
   background-color: #009146
+  +media(426)
+    margin: 0
+
 
 .similar-products
   padding-bottom: 70px
 
 .select-nicetile 
-  padding: 10px
+  font-size: 16px
+  font-weight: 550
+  padding: 12px
   border: 2px solid #009146
   border-radius: 7px
   margin-right: 10px
+
+.popup
+  position: fixed
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.8)
+  top: 0
+  left: 0
+  opacity: 0
+  visibility: hidden 
+  z-index: 1
+  transition: all 0.8s ease 0s
+
+.popup:target
+  opacity: 1
+  visibility: visible
+
+.popup:target .popup-content
+  transform: translate(0, 0)
+  opacity: 1
+
+.popup-body
+  min-height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 30px 10px
+
+.popup-content 
+  background-color: #fff
+  color: #000
+  max-width: 800px
+  padding: 30px
+  position: relative
+  border: 3px solid #009146
+  border-radius: 5px
+  transition: all 0.8s ease 0s
+  opacity: 0
+  transform: translate(0, -100%)
+
+.popup-close
+  position: absolute
+  right: 10px
+  top: 0
+  color: #009146
+  font-weight: 800
+  font-size: 35px
+  transform: rotate(45deg)
+  
+.popup-area
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+
 
     
