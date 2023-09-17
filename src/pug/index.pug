@@ -44,6 +44,13 @@ html(lang="uk")
                         +oneCard(cards.kit)    
                         +oneCard(cards.Nicetile)    
                     .in-katalog-block
-                        a(href="#").in-katalog у каталог    
+                        a(href="#").in-katalog у каталог
+            .popup(id="popup")
+                a(href="#").popup-area
+                    .popup-body 
+                        .popup-content 
+                            a(href="#").popup-close.close-popup +
+                            p.popup-h Оформлення замовлення
+                            p.popup-text Щоб замовити продукт поздвоніть на данні номери:
         include components/footer.pug
-    script(src='index.js')
+        script(src="js/index.js") 

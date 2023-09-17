@@ -7,16 +7,7 @@
             code: "247589",
             producer: "Італія",
             price: "1180 грн/уп",
-            href: "#",
-        },
-        Nicetile: {
-            src: "img/nicetile.png",
-            alt: "kit",
-            name: "Ніцетіл, Ницетил - (Nicetile), саше",
-            code: "247589",
-            producer: "Італія",
-            price: "1180 грн/уп",
-            href: "#",
+            href: "#popup",
         }
     }
 
@@ -25,7 +16,7 @@ mixin oneCard (item)
         figcaption 
             .cardimg
                 .images
-                    img(src=item.src, alt=item.alt)
+                    img(src=item.src, alt=item.alt).card-image
                 p.card-name= item.name
                 p.text-code код товару: 
                     p.code= item.code
@@ -33,4 +24,4 @@ mixin oneCard (item)
                     p.producer= item.producer
                 .stick
                 p.price= item.price 
-                a(href=item.href).btn у кошик 
+                a(href=item.href).btn.popup-link у кошик 
