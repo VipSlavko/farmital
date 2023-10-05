@@ -50,7 +50,27 @@ html(lang="uk")
                     .popup-body 
                         .popup-content 
                             a(href="#").popup-close.close-popup +
-                            p.popup-h Оформлення замовлення
-                            p.popup-text Щоб замовити продукт поздвоніть на данні номери:
+                            .popup-block
+                                .left-popup
+                                    p.popup-h Оформлення замовлення
+                                    p.popup-text.pud Щоб оформити замовлення зателефонуйте на мобільні номери:
+                                    p.popup-text.pud Або надішліть електронний лист на пошту:
+                                    p.popup-text Також можете звертатись до нас в соц-мережах:
+                                .right-popup
+                                    .phone-popup.pud
+                                        p
+                                            a(href="tel:+380979301788")
+                                                b +38(097) 930-17-88
+                                        p.mob
+                                            a(href="tel:+380959371699")
+                                                b +38(095) 937-16-99
+                                        p
+                                            a(href="tel:+380631294099")
+                                                b +38(063) 129-40-99
+                                    .mail-popup
+                                        a.url(href="mailto:likital687@gmail.com") likital687@gmail.com
+                                    .messengers-popup
+                                        a.icon.viber(href="viber://chat?number=%2B380979301788") Viber
+                                        a.icon.telegram(href="https://t.me/chatFarmital") Telegram
         include components/footer.pug
         script(src="js/index.js") 
