@@ -1,3 +1,770 @@
-@import 'variables.sass'
-@import 'adaptiveValue.sass'
-@import 'standart.sass'
+@import helpers/vars
+@import helpers/mixins
+@import helpers/catalog
+  
+@import  components/header
+@import  components/footer
+
+html,
+body,
+ul,
+input,
+textarea
+  margin: 0
+  padding: 0
+  font-family: "Montserrat"
+
+.wrapper
+  margin: 0 auto
+  max-width: 1000px
+  +media(1025)
+    max-width: 1000px
+  +media(1440)
+    max-width: 1240px
+
+.burger-menu
+  // display: none
+  @media screen and ( max-width: 768px ) 
+    position: relative
+    display: block 
+    padding: 12px 0
+    span 
+      display: block
+      width: 40px
+      height: 7px
+      background: $green
+      background-size: 200%
+      border-radius: 2px
+      transition: $trs
+      &::before,
+      &::after
+        content: ''
+        position: absolute
+      &::before
+        top: 0
+      &::after
+        bottom: 0
+      &::before,
+      &::after
+        left: 0
+        width: 40px
+        height: 7px
+        background: $green
+        background-size: 200%
+        border-radius: 2px
+        transition: $trs
+        &:hover
+          background-color: $green-hov
+
+// header,
+// footer
+//   display: none
+//   +media(1025)
+//     display: block
+
+.text-head
+  padding: 15px
+  font-size: 16px
+  border: 2px solid #009146
+  border-radius: 5px
+
+
+.sub-head
+  padding: 6px 22px
+  font-size: 16px
+  background-color: #009146
+  color: #fff
+  border: 1px solid #009146
+  border-radius: 5px
+  cursor: pointer
+  position: absolute
+  right: 5px
+  top: 10px
+
+  &:hover
+    background-color: #067a3e
+
+.shop::before,
+.heart::before
+  position: absolute
+  top: -15px
+  left: 0
+
+.heart::before
+  content: url('../img/heart-prosor.png')
+
+.shop::before
+  content: url('../img/basket.png')
+  left: -40px
+
+.phone p
+  font: 400 15px/6.2px "Montserrat"
+  text-align: center
+
+  a:hover
+    text-decoration: underline
+    color: #a4a4a4
+
+a
+  text-decoration: none
+  color: #191919
+
+.banner
+  margin: 23px 0 100px
+  padding: 100px 90px 100px 70px
+  border-radius: 5px
+  background: 
+    image: url(../img/center-img.png)
+    position: center center
+    repeat: no-repeat 
+    size: cover
+
+.banner-h1
+  color: #009146
+  font-size: 25px
+  font-weight: 600
+  max-width: 800px
+  +media(426)
+    font-size: 45px
+
+
+.banner-text
+  color: #191919
+  font-size: 16px
+  font-weight: 400
+  text-align: left
+  display: inline-block
+  max-width: 500px
+  +media(426)
+    font-size: 25px
+
+.info-h2
+  font-size: 40px
+  text-align: center
+  color: #009146
+
+.info-h3
+  color: #191919
+  margin: 0
+  font-size: 20px
+  font-weight: 600
+
+.info-text
+  margin: 0
+  font-size: 18px
+  color: #191919
+  font-weight: 400
+
+.info-block
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.info-mini-block
+  padding: 50px 50px 50px 80px
+  max-width: 150px
+  position: relative
+  +media(426)
+  padding: 55px
+  max-width: 360px
+
+.car
+  &::before
+    content: url(../img/car.png)
+    position: absolute
+    top: 55px
+    left: -40px
+    background: 
+      image: url(../img/car.png)
+      position: center center
+      repeat: no-repeat 
+      size: cover
+
+.hands
+  &::before
+    content: url(../img/hands.png)
+    position: absolute
+    top: 55px
+    left: -25px
+.plus
+  &::before
+    content: url(../img/plus.png)
+    position: absolute
+    top: 55px
+    left: -20px
+
+.phone-plus
+  &::before
+    content: url(../img/tel-heart.png)
+    position: absolute
+    top: 55px
+    left: -20px
+
+.europe
+  &::before
+    content: url(../img/europ.png)
+    position: absolute
+    top: 55px
+    left: -20px
+    
+.top-of-sells-h4
+  color: #009146
+  text-align: center
+  font-weight: 600
+  font-size: 40px
+
+.cardwrap
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.card
+  max-width: 300px
+  margin: 20px
+  padding: 20px 25px
+  border: 2px solid #0e9750
+  border-radius: 5px
+  +media(1180)
+    margin: 10px 20px
+
+
+.card-name
+  color: #0e9750
+  font-weight: 600
+  font-size: 20px
+
+.card-image
+  display: block
+  margin: 0 auto
+
+.text-code
+  font-weight: 600
+  display: inline-block
+  margin: 0
+  padding-right: 5px
+
+.code
+  margin: 0
+  display: inline-block
+
+.text-producer
+  margin: 0
+  margin: 0
+  font-weight: 600
+  padding-right: 5px
+  display: inline-block
+
+.producer
+  margin: 0
+  display: inline-block
+
+.stick
+  width: 100%
+  height: 2px
+  margin: 10px 0 
+  background-color:#0e9750
+
+.price
+  font-weight: bold
+  font-size: 25px
+  margin: 0
+  padding: 10px 10px 10px 0
+  display: inline-block
+
+.btn
+  color: #fff
+  padding: 7px 20px
+  font-size: 20px
+  float: right
+  border-radius: 7px
+  background-color: #0e9750
+
+.in-katalog-block
+  padding: 60px 0
+  text-align: center
+
+.in-katalog
+  position: relative
+  color: #fff
+  font-size: 25px
+  font-weight: bold
+  padding: 15px 80px
+  border-radius: 10px
+  background-color: #0e9750
+
+.contacts-h1-block
+  padding: 50px 0
+  font-size: 23px
+  color: #0e9750
+  font-weight: bold
+  text-align: center
+
+.contact-block
+  display: flex
+  justify-content: center
+  padding-bottom: 100px
+
+.left-block
+  padding: 30px 0 30px 30px
+
+.background-left-block
+  padding: 50px 200px 50px 50px
+  background-color: #f0f0f0
+
+
+.contacts-people
+  font-size: 23px
+  font-weight: bold
+  padding-right: 5px
+  display: inline-block
+
+.volodya-i-katuha
+  font-size: 20px
+  display: inline-block
+
+.hours-of-work
+  font-weight: bold
+  font-size: 25px
+
+.hours
+  font-weight: bold
+  font-size: 16px
+
+.email-text
+  font-weight: bold
+  font-size: 25px
+
+.telephones
+  font-weight: bold
+  font-size: 25px
+
+.con-list
+  font-size: 16px
+  list-style: none
+
+.emails
+  font-size: 16px
+
+.mesengers
+  font-weight: 600
+  font-size: 25px
+
+.con-logo
+  padding: 0 10px
+
+.right-block
+  padding: 0 30px
+  max-width: 500px
+  border: 2px solid #009146
+  border-radius: 5px
+
+.con-h2
+  text-align: center
+  color: #009146
+  font-weight: 600
+  font-size: 35px
+
+.your-name
+  font-weight: 600
+  font-size: 20px
+
+.your-email
+  font-weight: 600
+  font-size: 20px
+
+.com
+  font-weight: 600
+  font-size: 20px
+
+.email-form
+  padding: 15px
+  font-size: 16px
+  border: 2px solid #009146
+  border-radius: 5px
+  width: 100%
+
+.textarea
+  width: 100%
+  height: 200px
+  resize: none
+  border: 2px solid #009146
+  border-radius: 5px
+  margin-bottom: 25px
+
+.sub-con
+  width: 100%
+  color: #fff
+  border: none
+  border-radius: 5px
+  font-size: 20px
+  background-color: #009146
+  padding: 15px 0
+  &::hover
+    cursor: pointer
+
+
+.h-del
+  color: #009146
+  font-size: 35px
+  text-align: center
+  padding-bottom: 20px
+
+.new-postal-block 
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  margin: 0 auto
+  max-width: 700px
+  padding: 20px 50px 20px 0
+  margin-bottom: 50px
+  border-radius: 5px
+  background-color: #f0f0f0
+
+.image-left 
+  margin: 0 auto
+  padding: 50px
+  +media(426)
+    padding-top: 60px
+
+
+.del-image
+  width: 220px
+
+.text-right
+  max-width: 300px
+  +media(426)
+    border-left: 2px solid #009146
+
+.free-del
+  margin: 0 15px 20px
+
+.text-del
+  margin: 0 15px 15px
+
+.payment
+  padding: 0 20px 20px 50px
+
+.pay-text
+  font-size: 20px
+  color: #191919
+  font-weight: 400
+
+.form-text,
+.email-form
+  max-width: 450px
+  padding: 15px 0
+
+.crumbs p
+  display: inline-block
+  position: relative
+  font: 400 16px "Montserrat"
+  color: #191919
+  padding: 0 20px
+  a:hover
+    color: #009146
+
+.crumbs p:first-child
+  &::after
+    content: ""
+    position: absolute
+    border-top: 1px solid black
+    border-right: 1px solid black
+    rotate: 45deg
+    top: 4px
+    right: -3px
+    width: 8px
+    height: 8px
+
+.top-info-nicetile
+  padding: 70px 0
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.left-image-nicetile 
+  width: 500px
+
+.right-info-nicetile
+  max-width: 560px
+  padding: 10px 0 0 10px 
+  +media(1025)
+    padding: 0 0 0 50px 
+
+
+.image-nicetile
+  display: block
+  margin: 0 auto
+
+.h1-nicetile
+  margin-top: 0
+  color: #191919
+  font-weight: 600
+  font-size: 32px
+
+.price-nicetile
+  color: #009146
+  font-weight: 600
+  font-size: 27px
+
+.producer-nicetile
+  color: #191919
+  font-weight: 500
+  font-size: 17px
+
+.code-nicetile
+  color: #191919
+  font-weight: 100
+  font-size: 15px
+
+.response
+  margin: 0
+  color: #191919
+  font-weight: 600
+  font-size: 17px
+  padding-right: 50px
+  display: inline-block
+
+.view-all
+  color: #009146
+  font-weight: 500
+  font-size: 17px
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+.h-nicetile
+  margin-bottom: 7px
+  color: #191919
+  font-weight: 600
+  font-size: 25px
+  padding: 0 30px
+  +media(769)
+    padding: 0
+
+.top-h-nicetile
+  margin-bottom: 7px
+  color: #191919
+  font-weight: 600
+  font-size: 25px
+
+.text-nicetile
+  margin: 5px 0
+  color: #191919
+  font-weight: 400
+  font-size: 17px
+  padding: 0 30px
+  +media(769)
+    padding: 0
+
+.top-text-nicetile
+  margin: 5px 0
+  color: #191919
+  font-weight: 400
+  font-size: 17px
+
+.buy-block
+  display: flex
+  flex-wrap: wrap
+  justify-content: left
+  padding-top: 20px 
+
+.a-nicetile
+  color: #fff
+  text-align: right
+  padding: 12px 120px
+  border-radius: 5px
+  font-size: 20px
+  margin-top: 20px
+  background-color: #009146
+  +media(426)
+    margin: 0
+
+
+.similar-products
+  padding-bottom: 70px
+
+.select-nicetile 
+  font-size: 16px
+  font-weight: 550
+  padding: 12px
+  border: 2px solid #009146
+  border-radius: 7px
+  margin-right: 10px
+
+.popup
+  position: fixed
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.8)
+  top: 0
+  left: 0
+  opacity: 0
+  visibility: hidden 
+  z-index: 1
+  transition: all 0.8s ease 0s
+
+.popup:target
+  opacity: 1
+  visibility: visible
+
+.popup:target .popup-content
+  transform: translate(0, 0)
+  opacity: 1
+
+.popup-body
+  min-height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 30px 10px
+
+.popup-content 
+  background-color: #fff
+  color: #000
+  max-width: 800px
+  padding: 30px
+  position: relative
+  border: 3px solid #009146
+  border-radius: 5px
+  transition: all 0.8s ease 0s
+  opacity: 0
+  transform: translate(0, -100%)
+
+.popup-close
+  position: absolute
+  right: 10px
+  top: 0
+  color: #009146
+  font-weight: 800
+  font-size: 35px
+  transform: rotate(45deg)
+  
+.popup-area
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+
+.popup-block
+  display: flex
+
+.left-popup
+  padding: 0 50px 50px 50px
+  border-right: 2px solid #009146
+
+.right-popup
+  padding: 85px 50px 
+
+.popup-h
+  font-size: 35px
+  font-weight: bold
+
+.popup-text
+  max-width: 400px
+  font-size: 25px
+
+.pud
+  padding-bottom: 70px
+
+.phone-popup
+  padding-left: 20px
+  font: 400 12px "Montserrat"
+  text-align: left
+  color: #191919
+
+  a
+    font-size: 16px
+    text-decoration: none
+
+.messengers-popup
+  padding-top: 120px
+  padding-right: 100px
+  font-size: 20px
+
+.mail-popup
+  padding-top: 70px
+  padding-left: 30px
+
+.main-filter
+  display: flex
+  justify-content: space-between
+  padding-bottom: 100px
+
+.filter
+  max-width: 300px
+
+.cards-catalog
+  max-width: 1200px
+  display: flex
+  justify-content: center
+
+.line-cards
+  padding-bottom: 50px
+
+.submit-catalog
+  color: #fff
+  font-size: 20px
+  font-weight: 500
+  background-color: #009146
+  padding: 10px 70px
+  max-width: 300px
+  margin-bottom: 15px
+  margin-top: 20px
+
+.def-catalog
+  color: #009146
+  font-size: 20px
+  font-weight: 500
+  background-color: #fff
+  padding: 10px 50px
+  max-width: 300px
+
+.price-catalog,
+.form-release,
+.recept,
+.for-what
+  padding: 0 0 10px 0
+  border-bottom: 1px solid #009146
+
+.price-num
+  padding: 5px 7px
+  max-width: 60px
+
+.price-line
+  padding: 0 50px 
+  font-size: 50px
+  margin: 10px 0
+  display: inline-block
+
+.h2-price
+  font-size: 25px
+  color: #009146
+  margin: 0
+
+.h3-release
+  font-size: 25px
+  color: #009146
+
+.h4-catalog
+  font-size: 25px
+  color: #009146
+
+.h5-catalog
+  font-size: 25px
+  color: #009146
+
+.checkbox-catalog 
+  height: 20px
+  max-width: 30px
+
+.checkbox-text
+  font-size: 22px
+  padding: 10px
+
+.section
+  padding: 5px 5px 5px 0
+
+
+
+    
