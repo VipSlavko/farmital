@@ -1,6 +1,6 @@
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
-const buildFolder = `./docs`;
+const buildFolder = `D:/openserver/domains/fermital/wp-content/themes/fermital`;
 const srcFolder = `./src`;
 export const path = {
     build: {
@@ -23,7 +23,7 @@ export const path = {
     watch: {
         js: `${srcFolder}/assets/js/**/*.js`,
         sass: `${srcFolder}/assets/sass/**/*.sass`,
-        html: `${srcFolder}/*.{html,php}`,
+        html: `${srcFolder}/**/*.{html,php}`,
         files: `${srcFolder}/*.*`,
         images: `${srcFolder}/assets/img/**/*.{jpg,jpeg,svg,ico,png,gif,webp}`,
     },
