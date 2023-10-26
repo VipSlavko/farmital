@@ -16,8 +16,115 @@ html(lang="uk")
                     a(href="/docs/") Головна
                 p
                     a(href="/docs/catalog.html") Каталог
-            main
-                form(action="")
+            .main-filter
+                .filter
+                    h1.h1-filter Фільтр
+                    main
+                        form(action="")
+                        .price-catalog
+                            h2.h2-price Ціна
+                            input(type="text", name="").price-num
+                            span.price-line -
+                            input(type="text", name="").price-num
+                        .form-release 
+                            h3.h3-release Форма випуску
+                            table 
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check1").checkbox-catalog 
+                                        label(for="check1").checkbox-text таблетки
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check2").checkbox-catalog 
+                                        label(for="check2").checkbox-text порошок
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check3").checkbox-catalog 
+                                        label(for="check3").checkbox-text капсули
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check4").checkbox-catalog 
+                                        label(for="check4").checkbox-text розчин
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check5").checkbox-catalog 
+                                        label(for="check5").checkbox-text сироп
+                                tr
+                                    td.section
+                                        input(type="checkbox", name="check5").checkbox-catalog 
+                                        label(for="check5").checkbox-text гранули
+                        .recept 
+                            h4.h4-catalog Рецептурний відпуск
+                            table 
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check6").checkbox-catalog 
+                                        label(for="check6").checkbox-text без рецепту
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check7").checkbox-catalog 
+                                        label(for="check7").checkbox-text за рецептом
+                        .for-what 
+                            h5.h5-catalog Призначення
+                            table 
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check8").checkbox-catalog 
+                                        label(for="check8").checkbox-text антибактеріальний
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check9").checkbox-catalog 
+                                        label(for="check9").checkbox-text від алергії
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check10").checkbox-catalog 
+                                        label(for="check10").checkbox-text від кашлю
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check11").checkbox-catalog 
+                                        label(for="check11").checkbox-text від болю у горлі
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check12").checkbox-catalog 
+                                        label(for="check12").checkbox-text від нежитю
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check13").checkbox-catalog 
+                                        label(for="check13").checkbox-text вітаміни
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check14").checkbox-catalog 
+                                        label(for="check14").checkbox-text для судин
+                                tr 
+                                    td.section
+                                        input(type="checkbox", name="check15").checkbox-catalog 
+                                        label(for="check15").checkbox-text заспокійливе
+                        .buttons-catalog
+                            input(type="submit", value="застосувати").submit-catalog
+                            input(type="submit", value="скинути").def-catalog
+                                
+
+                .cards-catalog
+                    .cardwrap 
+                        .line-cards
+                            +oneCard(cards.Nicetile)  
+                        .line-cards
+                            +oneCard(cards.Nicetile)    
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                        .line-cards
+                            +oneCard(cards.Nicetile) 
+                
                      
 
         include components/footer.pug
