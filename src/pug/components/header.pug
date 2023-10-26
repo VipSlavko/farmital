@@ -1,14 +1,17 @@
 header
     .wrapper
+        .burger-menu
+            span
         .header-top
             .logo
                 a(href="/") 
                     img(src="./img/logo.png", alt="Інтернет Аптека FarmItal", title="Купити ліки в інтернет аптеці Фармітал")
-            .search-container
-                form(action="") 
-                    label.search-label
-                        input(type="text" placeholder="Пошук препарату").text-head
-                        button(type="submit").sub-head Пошук
+            .search
+                .search-container
+                    form(action="")
+                        label.search-label
+                            input(type="text" placeholder="Пошук препарату").text-head
+                            button(type="submit").sub-head Пошук
             .phone
                 p
                     a(href="tel:+380979301788")

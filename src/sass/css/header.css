@@ -1,0 +1,129 @@
+.header-top,
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+input {
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #009146;
+  border-radius: 5px;
+  width: 550px;
+}
+
+button {
+  padding: 6px 22px;
+  font-size: 16px;
+  background-color: #009146;
+  color: #fff;
+  border: 1px solid #009146;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+button:hover {
+  background-color: #067a3e;
+}
+
+.phone {
+  font-size: 400 12px "Montserrat";
+  text-align: center;
+  color: #191919;
+}
+.phone a {
+  text-decoration: none;
+}
+
+.basket {
+  position: relative;
+}
+
+.shop::before,
+.heart::before {
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+
+.heart::before {
+  content: url("../img/heart-prosor.png");
+}
+
+.shop::before {
+  content: url("../img/basket.png");
+  left: -40px;
+}
+
+.phone p {
+  font: 400 15px/6.2px "Montserrat";
+  text-align: center;
+}
+.phone p a:hover {
+  text-decoration: underline;
+  color: #a4a4a4;
+}
+
+a {
+  text-decoration: none;
+  color: #191919;
+}
+
+.mob {
+  position: relative;
+}
+
+.mob::before {
+  content: url("../img/phone.png");
+  position: absolute;
+  top: -10px;
+  left: -25px;
+}
+
+.header-bottom {
+  max-width: 1960px;
+  background-color: #109852;
+}
+
+.header-bottom ul {
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-bottom a {
+  font: 500 16px "Montserrat";
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  border-right: 2px solid #fff;
+  padding-right: 30px;
+}
+.header-bottom a:hover {
+  color: #a4a4a4;
+}
+
+.header-bottom li:last-child a {
+  border-right: none;
+}
+
+.header-bottom li {
+  padding: 20px 0 20px 30px;
+}/*# sourceMappingURL=header.css.map */

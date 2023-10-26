@@ -8,20 +8,29 @@
             producer: "Італія",
             price: "1180 грн/уп",
             href: "#popup",
+        } ,
+        Nicetile: {
+            src: "img/nicetile.jpg",
+            alt: "nicetile",
+            name: "Ніцетіл, Ницетил - (Nicetile), саше",
+            code: "247589",
+            producer: "Італія",
+            price: "1180 грн/уп",
+            href: "#popup",
         }
     }
 
-mixin oneCard (item)
+mixin oneCard(item)
     figure.card
         figcaption 
             .cardimg
                 .images
-                    img(src=item.src, alt=item.alt).card-image
+                    img(src=item.src , alt=item.alt).card-image
                 p.card-name= item.name
                 p.text-code код товару: 
-                    p.code= item.code
+                    p.code=item.code
                 p.text-producer Виробник:
-                    p.producer= item.producer
+                    p.producer=item.producer
                 .stick
-                p.price= item.price 
+                p.price=item.price 
                 a(href=item.href).btn.popup-link у кошик 

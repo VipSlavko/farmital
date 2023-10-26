@@ -1,5 +1,6 @@
 @import helpers/vars
 @import helpers/mixins
+@import helpers/catalog
   
 @import  components/header
 @import  components/footer
@@ -17,32 +18,49 @@ textarea
   margin: 0 auto
   max-width: 1000px
   +media(1025)
+    max-width: 1000px
+  +media(1440)
     max-width: 1240px
-  +media(1441)
-    max-width: 1600px
 
-header,
-footer
-  display: none
-  +media(1025)
-    display: block
+.burger-menu
+  // display: none
+  @media screen and ( max-width: 768px ) 
+    position: relative
+    display: block 
+    padding: 12px 0
+    span 
+      display: block
+      width: 40px
+      height: 7px
+      background: $green
+      background-size: 200%
+      border-radius: 2px
+      transition: $trs
+      &::before,
+      &::after
+        content: ''
+        position: absolute
+      &::before
+        top: 0
+      &::after
+        bottom: 0
+      &::before,
+      &::after
+        left: 0
+        width: 40px
+        height: 7px
+        background: $green
+        background-size: 200%
+        border-radius: 2px
+        transition: $trs
+        &:hover
+          background-color: $green-hov
 
-.header-top,
-.header-bottom
-  display: flex
-  justify-content: space-between
-  align-items: center
-
-.search-container
-  display: flex
-  align-items: center
-  justify-content: center
-  margin: 20px
-
-.search-label
-  position: relative
-  display: inline-flex
-  align-items: center
+// header,
+// footer
+//   display: none
+//   +media(1025)
+//     display: block
 
 .text-head
   padding: 15px
@@ -65,17 +83,6 @@ footer
 
   &:hover
     background-color: #067a3e
-
-.phone
-  font: 400 12px "Montserrat"
-  text-align: center
-  color: #191919
-
-  a
-    text-decoration: none
-
-.basket
-  position: relative
 
 .shop::before,
 .heart::before
@@ -101,42 +108,6 @@ footer
 a
   text-decoration: none
   color: #191919
-
-.mob
-  position: relative
-
-.mob::before
-  content: url('../img/phone.png')
-  position: absolute
-  top: -10px
-  left: -25px
-
-.header-bottom
-  max-width: 1960px
-  background-color: #109852
-
-.header-bottom ul
-  margin: 0 auto
-  list-style: none
-  display: flex
-  justify-content: space-between
-
-.header-bottom a
-  font: 500 16px "Montserrat"
-  text-transform: uppercase
-  color: #fff
-  text-align: center
-  border-right: 2px solid #fff
-  padding-right: 30px
-
-  &:hover
-    color: #a4a4a4
-
-.header-bottom li:last-child a
-  border-right: none
-
-.header-bottom li
-  padding: 20px 0 20px 30px
 
 .banner
   margin: 23px 0 100px
@@ -190,108 +161,50 @@ a
   justify-content: center
 
 .info-mini-block
-<<<<<<< HEAD
   padding: 50px 50px 50px 80px
   max-width: 150px
   position: relative
   +media(426)
     max-width: 360px
-=======
   position: relative
   padding: 55px
   max-width: 360px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .car
   &::before
     content: url(../img/car.png)
     position: absolute
-<<<<<<< HEAD
-    width: 76px
-    height: 50px
-    left: 1px
-    background: 
-      image: url(../img/car.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-=======
     top: 55px
     left: -40px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .hands
   &::before
     content: url(../img/hands.png)
     position: absolute
-<<<<<<< HEAD
-    width: 65px
-    height: 55px
-    left: 7px
-    background: 
-      image: url(../img/hands.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-=======
     top: 55px
     left: -25px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .plus
   &::before
     content: url(../img/plus.png)
     position: absolute
-<<<<<<< HEAD
-    width: 55px
-    height: 55px
-    left: 10px
-    background: 
-      image: url(../img/plus.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-=======
     top: 55px
     left: -20px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .phone-plus
   &::before
     content: url(../img/tel-heart.png)
     position: absolute
-<<<<<<< HEAD
-    width: 53px
-    height: 55px
-    left: 10px
-    background: 
-      image: url(../img/tel-heart.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-=======
     top: 55px
     left: -20px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
 
 .europe
   &::before
     content: url(../img/europ.png)
     position: absolute
-<<<<<<< HEAD
-    width: 55px
-    height: 65px
-    left: 10px
-    background: 
-      image: url(../img/europ.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-=======
     top: 55px
     left: -20px
->>>>>>> 41f1c86719f7e8d5d1215ab6fe9bcc06c71520d7
-
+    
 .top-of-sells-h4
   color: #009146
   text-align: center
@@ -310,7 +223,7 @@ a
   border: 2px solid #0e9750
   border-radius: 5px
   +media(1180)
-    margin: 0 20px
+    margin: 10px 20px
 
 
 .card-name
@@ -486,6 +399,7 @@ a
   padding: 15px 0
   &::hover
     cursor: pointer
+
 
 .h-del
   color: #009146
