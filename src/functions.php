@@ -27,7 +27,8 @@ function get_menu($header = true) {
     } 
     else { ?>
         <ul>
-        <?php 
+        <?php
+        $menu_items = wp_get_nav_menu_items("footer");
         foreach($menu_items as $item) { ?>
             <li>
             <a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a>
