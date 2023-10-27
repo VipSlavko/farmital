@@ -2,29 +2,7 @@
       <div class="wrapper">
         <div class="footer">
           <div class="footer-menu footer-el">
-            <table>
-              <tr>
-                <td>
-                  <a href="./">Головна</a>
-                </td>
-                <td>
-                  <a href="./delivery.php">Доставка та оплата</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="./catalog.php">Каталог</a>
-                </td>
-                <td>
-                  <a href="./contact.php">Контакти</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="./comments.php">Відгуки</a>
-                </td>
-              </tr>
-            </table>
+            <?php echo get_menu(false); ?>
           </div>
           <div class="phone footer-el">
             <p>

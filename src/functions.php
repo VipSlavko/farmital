@@ -25,8 +25,18 @@ function get_menu($header = true) {
     </ul>
     <?php
     } 
-    else {
-        
+    else { ?>
+        <ul>
+        <?php 
+        foreach($menu_items as $item) { ?>
+            <li>
+            <a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a>
+            </li>
+        <?php
+        } 
+        ?>
+        </ul>
+        <?php
     }
     ?>    
 <?php 
