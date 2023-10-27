@@ -12,10 +12,16 @@
             <p><a href="tel:+380631294099"><b>+38(063) 129-40-99</b></a></p>
           </div>
           <div class="messengers footer-el">
-            <div class="messenger"><a class="icon viber" href="viber://chat?number=%2B380979301788"></a><a class="icon telegram" href="https://t.me/chatFarmital"></a></div>
-            <div class="mail"><a class="url" href="mailto:likital687@gmail.com">likital687@gmail.com</a></div>
+            <div class="messenger">
+              <a class="icon viber" href="viber://chat?number=%2B380979301788"></a>
+              <a class="icon telegram" href="https://t.me/chatFarmital"></a>
+            </div>
+            <div class="mail">
+              <a class="url" href="mailto:<?php echo get_email(); ?>"><?php echo get_email(); ?></a>
+            </div>
           </div>
-          <div class="copyright footer-el"><img src="./img/logo.png" alt="">
+          <div class="copyright footer-el">
+          <?php echo get_custom_logo(); ?>
             <p class="copy">&copy Інтернет Аптека FarmItal 2021-2023</p>
           </div>
         </div>

@@ -42,4 +42,7 @@ function get_menu($header = true) {
     ?>    
 <?php 
 }
+function get_email() {
+    return get_bloginfo('admin_email');
+}
 ?>
