@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html <?php echo get_language_attributes(); ?> >
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Інтернет-Аптека Фарміталь продаж ліків, ліки на замовлення з Італії</title>
     <?php wp_head(); ?>
   </head>
   <body>
     <header>
       <div class="wrapper">
-        <div class="burger-menu"><span></span></div>
+        <div class="burger-menu">
+          <span>
+          </span>
+        </div>
         <div class="header-top">
           <div class="logo">
-            <a href="/">
-              <img src="<?php echo get_path("/assets/img/logo.png"); ?>" alt="Інтернет Аптека FarmItal" title="Купити ліки в інтернет аптеці Фармітал">
-            </a>
+              <?php echo get_custom_logo(); ?>
           </div>
           <div class="search">
             <div class="search-container">
@@ -35,23 +35,7 @@
         </div>
       </div>
       <div class="header-bottom">
-        <ul>
-          <li>
-            <a href="/">Головна</a>
-          </li>
-          <li>
-            <a href="./catalog.php">Каталог</a>
-          </li>
-          <li>
-            <a href="./comments.php">Відгуки</a>
-          </li>
-          <li>
-            <a href="./delivery.php">Доставка та оплата</a>
-          </li>
-          <li>
-            <a href="./contact.php">Контакти</a>
-          </li>
-        </ul>
+        <?php echo get_menu(); ?>
       </div>
     </header>
     <main> 
