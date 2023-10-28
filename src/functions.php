@@ -148,7 +148,7 @@ function get_top_sells() {
                   </p>
                   <div class="stick">
                   </div>
-                  <p class="price">1180 грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
+                  <p class="price">'.$top_sell->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
                 </div>
               </figcaption>
             </figure>';
