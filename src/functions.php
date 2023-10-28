@@ -45,4 +45,27 @@ function get_menu($header = true) {
 function get_email() {
     return get_bloginfo('admin_email');
 }
+function get_field($field) {
+    return CFS()->get($field);
+}
+function get_phones() {
+    $phones = get_posts(array(
+        "category_name" => "phones"
+    ));
+    $template = '<div class="phone mob">
+    ';
+    foreach($phones as $phone) {
+        setup_postdata($phone);
+        $content = get_the_content();
+        $tel = wp_strip_all_tags($content);
+        $template.= '<p><a href="tel:';
+        $template.= $tel;
+        $template.= '"><b>';
+        $template.= get_the_title($phone->ID);
+        $template.= '</b></a></p>';
+        wp_reset_postdata();
+    }
+    $template .= '</div>';
+    return $template;
+}
 ?>

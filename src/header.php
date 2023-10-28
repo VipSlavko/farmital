@@ -27,11 +27,7 @@
               </form>
             </div>
           </div>
-          <div class="phone">
-            <p><a href="tel:+380979301788"><b>+38(097) 930-17-88</b></a></p>
-            <p class="mob"><a href="tel:+380959371699"><b>+38(095) 937-16-99</b></a></p>
-            <p><a href="tel:+380631294099"><b>+38(063) 129-40-99</b></a></p>
-          </div>
+          <?php echo get_phones(); ?>
         </div>
       </div>
       <div class="header-bottom">

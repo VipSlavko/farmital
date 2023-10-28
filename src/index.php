@@ -1,9 +1,14 @@
+<?php
+/*
+Template Name: Index 
+*/ 
+?>
 <?php echo get_header(); ?>
       <div class="wrapper"> 
-        <div class="banner">
+        <div class="banner" style="background-image: url(<?php echo get_field("banner_image"); ?>)">
           <div class="banner-content">
-            <h1 class="banner-h1">Інтернет-Аптека FarmItal - це аптека з найнижчими цінами на європейські ліки в Україні.</h1>
-            <p class="banner-text">Окрім найнижчих цін ми надаємо своїм клієнтам якісну та надійну продукцію, якість якої затверджена на Європейському рівні!</p>
+            <h1 class="banner-h1"><?php echo get_field("banner_title"); ?></h1>
+            <p class="banner-text"><?php echo get_field("banner_text"); ?></p>
           </div>
         </div>
         <div class="info">
