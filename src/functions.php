@@ -48,7 +48,7 @@ function get_email() {
 function get_field($field) {
     return CFS()->get($field);
 }
-function get_phones() {
+function get_phones($popub = false) {
     $phones = get_posts(array(
         "category_name" => "phones"
     ));
@@ -110,7 +110,7 @@ function get_benefits() {
     foreach($benefits as $benefit) {
         $template .= '
             <div class="info-mini-block">
-                <img src="'.$benefit["benefits_icon"].'" />
+                <img src="'.$benefit["benefits_icon"].'" alt="'.$benefit["benefits_name"].'" title="'.$benefit["benefits_name"].'" />
                 <div claass="info-mini-block__desc">
                     <h3 class="info-h3">'.$benefit["benefits_name"].'</h3>
                     <p class="info-text">'.$benefit["benefits_text"].'</p>
@@ -119,5 +119,45 @@ function get_benefits() {
     }
     $template .= '</div>';
     return $template;
+}
+function get_top_sells() {
+    $top_sells_cat = get_term_by( 'slug', 'top-sells', 'product_cat' );
+    $top_sells = wc_get_products(array(
+        "category_id" => $top_sells_cat->term_id,
+    ));
+    $template = '
+    <div class="top-of-sells">
+          <h4 class="top-of-sells-h4">'.$top_sells_cat->name.'</h4>
+          <div class="cardwrap">';
+          foreach($top_sells as $top_sell) {
+            setup_postdata( $top_sell );
+            $image_id = $top_sell->image_id;
+            $image_url = wp_get_attachment_image_src( $image_id, 'full' )[0];
+            $template .= '<figure class="card">
+              <figcaption> 
+                <div class="cardimg">
+                  <div class="images">
+                    <img class="card-image" src="'.$image_url.'" alt="'.$top_sell->name.'"/>
+                  </div>
+                  <p class="card-name">'.$top_sell->name.'</p>
+                  <p class="text-code">код товару: 
+                    <p class="code">'.$top_sell->get_attribute('code').'</p>
+                  </p>
+                  <p class="text-producer">Виробник:
+                    <p class="producer">'.$top_sell->get_attribute('producer').'</p>
+                  </p>
+                  <div class="stick">
+                  </div>
+                  <p class="price">1180 грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
+                </div>
+              </figcaption>
+            </figure>';
+            wp_reset_postdata();
+          }
+          $template .= '</div>
+          <div class="in-katalog-block"><a class="in-katalog" href="#">у каталог</a></div>
+        </div>
+    ';
+    echo $template;
 }
 ?>
