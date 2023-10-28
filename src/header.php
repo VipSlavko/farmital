@@ -15,7 +15,7 @@
         </div>
         <div class="header-top">
           <div class="logo">
-              <?php echo get_custom_logo(); ?>
+              <?php echo get_logo(); ?>
           </div>
           <div class="search">
             <div class="search-container">

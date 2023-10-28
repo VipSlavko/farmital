@@ -160,52 +160,17 @@ a
   justify-content: center
 
 .info-mini-block
+  display: flex
   padding: 50px 50px 50px 80px
   max-width: 150px
   position: relative
+  gap: 20px
+  align-items: center
   +media(426)
   padding: 55px
   max-width: 360px
-
-.car
-  &::before
-    content: url(../img/car.png)
-    position: absolute
-    top: 55px
-    left: -40px
-    background: 
-      image: url(../img/car.png)
-      position: center center
-      repeat: no-repeat 
-      size: cover
-
-.hands
-  &::before
-    content: url(../img/hands.png)
-    position: absolute
-    top: 55px
-    left: -25px
-.plus
-  &::before
-    content: url(../img/plus.png)
-    position: absolute
-    top: 55px
-    left: -20px
-
-.phone-plus
-  &::before
-    content: url(../img/tel-heart.png)
-    position: absolute
-    top: 55px
-    left: -20px
-
-.europe
-  &::before
-    content: url(../img/europ.png)
-    position: absolute
-    top: 55px
-    left: -20px
-    
+  img
+    display: block
 .top-of-sells-h4
   color: #009146
   text-align: center

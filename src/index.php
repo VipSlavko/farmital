@@ -12,29 +12,8 @@ Template Name: Index
           </div>
         </div>
         <div class="info">
-          <h2 class="info-h2">Переваги Farmital</h2>
-          <div class="info-block"> 
-            <div class="car info-mini-block">
-              <h3 class="info-h3">Швидка доставка ліків</h3>
-              <p class="info-text">Замовивши ліки до 16:00, Ви отримаєте їх вже наступного дня.</p>
-            </div>
-            <div class="hands info-mini-block">
-              <h3 class="info-h3">Турбота про ваше здоров'я</h3>
-              <p class="info-text">Ваше здоров'я - це найважливіше. Ми готові піти на зустріч в найскладніших ситуаціях.</p>
-            </div>
-            <div class="plus info-mini-block">
-              <h3 class="info-h3">Безпечні ліки</h3>
-              <p class="info-text">Ви розраховуєтесь за ліки, після того як їх оглянете їх.</p>
-            </div>
-            <div class="phone-plus info-mini-block"> 
-              <h3 class="info-h3">Ми завжди на зв'язку</h3>
-              <p class="info-text">Кожного дня з 9:00 до 18:00 наші оператори на зв'язку і готові вам допомогти.</p>
-            </div>
-            <div class="europe info-mini-block"> 
-              <h3 class="info-h3">Європейцські виробники</h3>
-              <p class="info-text">Ліки доставляють з Європи,де вони проходять сертифікацію по найвищих стандартах</p>
-            </div>
-          </div>
+          <h2 class="info-h2"><?php echo get_field("benefits_title"); ?></h2>
+          <?php echo get_benefits(); ?>
         </div>
         <div class="top-of-sells">
           <h4 class="top-of-sells-h4">Топ продажів</h4>
