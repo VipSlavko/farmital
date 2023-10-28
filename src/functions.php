@@ -1,7 +1,16 @@
 <?php 
 add_action('wp_enqueue_scripts', function(){
     wp_enqueue_style('style', get_path('/assets/css/style.min.css'), array(), 'null', false);
+    wp_enqueue_script('scripr', get_path('/assets/js/script.js'), array(), 'null', true);
 });
+function load_bloody_tinymce(){
+
+    wp_enqueue_script( 'bloody_tinymce_js_main', includes_url() . 'js/tinymce/tinymce.min.js' );
+    wp_enqueue_script( 'bloody_tinymce_js_plugin', includes_url() . 'js/tinymce/plugins/compat3x/plugin.min.js' );
+
+}
+add_action( 'admin_enqueue_scripts', 'load_bloody_tinymce' );
+
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 add_theme_support( 'custom-logo');
@@ -48,11 +57,15 @@ function get_email() {
 function get_field($field) {
     return CFS()->get($field);
 }
-function get_phones($popub = false) {
+function get_phones($in_popub = false) {
+    $extra_class = "";
+    if($in_popub == true) {
+        $extra_class = "-popup pud";
+    }
     $phones = get_posts(array(
         "category_name" => "phones"
     ));
-    $template = '<div class="phone mob">
+    $template = '<div class="phone'.$extra_class.' mob">
     ';
     foreach($phones as $phone) {
         setup_postdata($phone);
@@ -68,14 +81,17 @@ function get_phones($popub = false) {
     $template .= '</div>';
     return $template;
 }
-function get_sociables() {
+function get_sociables($in_popub = false) {
+    $extra_class = "";
+    if($in_popub) {
+        $extra_class .= "s-popup";
+    }
     $sociables = get_posts(array(
         "category_name" => "sociables",
         "order_by" => "ID",
         "order" => "ASC"
     ));
-    $template = '<div class="messenger">
-    ';
+    $template = '<div class="messenger'.$extra_class.'">';
     foreach($sociables as $sociable) {
         setup_postdata($sociable);
         $content = get_the_content();
@@ -84,7 +100,12 @@ function get_sociables() {
         $template.= get_the_title($sociable->ID);
         $template.= '"href="';
         $template.= $link;
-        $template.= '" ></a>';
+        $template.= '" >';
+        $sociable_name = "";
+        if($in_popub) {
+            $sociable_name = ucfirst(strtolower(get_the_title($sociable->ID)));
+        }
+        $template .= $sociable_name . '</a>';
         wp_reset_postdata();
     }
     $template .= '</div>';
@@ -120,42 +141,45 @@ function get_benefits() {
     $template .= '</div>';
     return $template;
 }
-function get_top_sells() {
-    $top_sells_cat = get_term_by( 'slug', 'top-sells', 'product_cat' );
-    $top_sells = wc_get_products(array(
-        "category_id" => $top_sells_cat->term_id,
+function get_products($cat_slag = 'all') {
+    $products_cat = get_term_by( 'slug', $cat_slag, 'product_cat' );
+    $products = wc_get_products(array(
+        "category_id" => $products_cat->term_id,
     ));
     $template = '
     <div class="top-of-sells">
-          <h4 class="top-of-sells-h4">'.$top_sells_cat->name.'</h4>
+          <h4 class="top-of-sells-h4">'.$products_cat->name.'</h4>
           <div class="cardwrap">';
-          foreach($top_sells as $top_sell) {
-            setup_postdata( $top_sell );
-            $image_id = $top_sell->image_id;
+          foreach($products as $product) {
+            setup_postdata( $product );
+            $image_id = $product->image_id;
             $image_url = wp_get_attachment_image_src( $image_id, 'full' )[0];
             $template .= '<figure class="card">
               <figcaption> 
                 <div class="cardimg">
                   <div class="images">
-                    <img class="card-image" src="'.$image_url.'" alt="'.$top_sell->name.'"/>
+                    <img class="card-image" src="'.$image_url.'" alt="'.$product->name.'"/>
                   </div>
-                  <p class="card-name">'.$top_sell->name.'</p>
+                  <p class="card-name">'.$product->name.'</p>
                   <p class="text-code">код товару: 
-                    <p class="code">'.$top_sell->get_attribute('code').'</p>
+                    <p class="code">'.$product->get_attribute('code').'</p>
                   </p>
                   <p class="text-producer">Виробник:
-                    <p class="producer">'.$top_sell->get_attribute('producer').'</p>
+                    <p class="producer">'.$product->get_attribute('producer').'</p>
                   </p>
                   <div class="stick">
                   </div>
-                  <p class="price">'.$top_sell->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
+                  <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
                 </div>
               </figcaption>
             </figure>';
             wp_reset_postdata();
           }
-          $template .= '</div>
-          <div class="in-katalog-block"><a class="in-katalog" href="#">у каталог</a></div>
+          $template .= '
+          </div>
+            <div class="in-katalog-block">
+                <a class="in-katalog" href="'.esc_url(home_url("/catalog")).'">у каталог</a>
+            </div>
         </div>
     ';
     echo $template;

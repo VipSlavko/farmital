@@ -15,35 +15,28 @@ Template Name: Index
           <h2 class="info-h2"><?php echo get_field("benefits_title"); ?></h2>
           <?php echo get_benefits(); ?>
         </div>
-        <?php echo get_top_sells(); ?>
+        <?php echo get_products('top-sells'); ?>
       </div>
-      <div class="popup" id="popup"><a class="popup-area" href="#">
+      <div class="popup" id="popup">
+        <a class="popup-area" href="#">
           <div class="popup-body"> 
             <div class="popup-content">
               <a class="popup-close close-popup" href="#">+</a>
               <div class="popup-block">
                 <div class="left-popup">
-                  <p class="popup-h">Оформлення замовлення</p>
-                  <p class="popup-text pud">Щоб оформити замовлення зателефонуйте на мобільні номери:</p>
-                  <p class="popup-text pud">Або надішліть електронний лист на пошту:</p>
-                  <p class="popup-text">Також можете звертатись до нас в соц-мережах:</p>
+                  <?php echo get_field("popub_text") ?>
                 </div>
                 <div class="right-popup">
-                  <div class="phone-popup pud">
-                    <p><a href="tel:+380979301788"><b>+38(097) 930-17-88</b></a></p>
-                    <p class="mob"><a href="tel:+380959371699"><b>+38(095) 937-16-99</b></a></p>
-                    <p><a href="tel:+380631294099"><b>+38(063) 129-40-99</b></a></p>
-                  </div>
+                  <?php echo get_phones(true); ?>
                   <div class="mail-popup">
-                    <a class="url" href="mailto:likital687@gmail.com">likital687@gmail.com</a>
+                    <a class="url" href="mailto:<?php echo get_email(); ?>"><?php echo get_email(); ?></a>
                   </div>
-                  <div class="messengers-popup">
-                    <a class="icon viber" href="viber://chat?number=%2B380979301788">Viber</a>
-                    <a class="icon telegram" href="https://t.me/chatFarmital">Telegram</a>
-                  </div>
+                  <?php echo get_sociables(true); ?>
                 </div>
               </div>
             </div>
-          </div></a></div>
+          </div>
+        </a>
+        </div>
     </main>
 <?php echo get_footer(); ?>
