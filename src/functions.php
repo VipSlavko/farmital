@@ -154,11 +154,12 @@ function get_products($cat_slag = 'all') {
             setup_postdata( $product );
             $image_id = $product->image_id;
             $image_url = wp_get_attachment_image_src( $image_id, 'full' )[0];
+            $product_name = $product->name;
             $template .= '<figure class="card">
               <figcaption> 
                 <div class="cardimg">
                   <div class="images">
-                    <img class="card-image" src="'.$image_url.'" alt="'.$product->name.'"/>
+                    <img class="card-image" src="'.$image_url.'" alt="'.$product_name.'" />
                   </div>
                   <p class="card-name">'.$product->name.'</p>
                   <p class="text-code">код товару: 
