@@ -8,18 +8,19 @@ Template Name: Delivery
       <div class="wrapper">
         <h1 class="h-del">Доставка</h1>
         <div class="new-postal-block"> 
-          <div class="image-left"> <img class="del-image" src="<?php echo get_path("/assets/img/nova-poshta.png") ?>" alt="new postal"></div>
+          <div class="image-left">
+            <img class="del-image" src="<?php echo get_field('delivery_image'); ?>" alt="<?php echo get_field("delivery_alt"); ?>">
+          </div>
           <div class="text-right">
-            <h2 class="free-del">Безкоштовна доставка від 2000 грн</h2>
-            <p class="text-del">1. Вартість доставки замовлень до 2000 грн - за тарифами НП;</p>
-            <p class="text-del">2. Ми зберемо та відправимо ваше замовлення в максимально короткий строк.</p>
+            <?php echo get_field("delivery_text"); ?>
           </div>
         </div>
-        <div class="payment"> 
-          <h3 class="h-del">Оплата</h3>
+        <div class="payment">
+          <?php echo get_field("payment_text"); ?> 
+          <!-- <h3 class="h-del">Оплата</h3>
           <p class="pay-text">Замовлення можна оплатити при оформленні банківською карткою, , а також можна обрати Післяоплату при отриманні на останньому кроці оформлення замовлення. Додаткових доплат та комісій за переказ коштів Ви не сплачуєте – лише суму замовлення.</p>
           <p class="pay-text">Оплата готівкою (накладений платіж) в пункті самовивозу транспортної компанії, або кур'єру служби доставки.</p>
-          <p class="pay-text">Оплата на рахунок у банку (після оформлення замовлення через сайт, ми уточнимо наявність всього товару і відправимо на вказаний Вами номер телефону номер рахунку і точну суму до оплати).</p>
+          <p class="pay-text">Оплата на рахунок у банку (після оформлення замовлення через сайт, ми уточнимо наявність всього товару і відправимо на вказаний Вами номер телефону номер рахунку і точну суму до оплати).</p> -->
         </div>
       </div>
     </main>
