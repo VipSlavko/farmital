@@ -185,4 +185,18 @@ function get_products($cat_slag = 'all') {
     ';
     echo $template;
 }
+function get_phones_list() {
+    $phones = get_posts(array(
+        "category_name" => "phones"
+    ));
+    $template = '
+    <ul class="con-list">';
+    foreach ($phones as $phone) {
+        setup_postdata( $phone );
+        $template .= '<li>'.get_the_title($phone->ID).'</li>';
+        wp_reset_postdata();
+    }
+    $template .= '</ul>';
+    return $template; 
+}
 ?>
