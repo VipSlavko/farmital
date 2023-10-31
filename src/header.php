@@ -34,4 +34,8 @@
         <?php echo get_menu(); ?>
       </div>
     </header>
-    <main> 
+    <main>
+      <div class="wrapper">
+        <div class="crumbs">
+        <?php echo do_shortcode("[breadcrumb]"); ?>
+      </div>

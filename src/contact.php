@@ -4,8 +4,6 @@ Template Name: Contact
 */ 
 ?>
 <?php echo get_header(); ?>
-    <main> 
-      <div class="wrapper"> 
         <div class="contacts-h1-block">
           <h1 class="contacts-h1">Контакти</h1>
         </div>

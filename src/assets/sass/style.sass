@@ -419,27 +419,24 @@ a
 .email-form
   max-width: 450px
   padding: 15px 0
-
-.crumbs p
-  display: inline-block
+.crumbs > div
+  padding-left: 0 !important
+.crumbs > div > ol > li
   position: relative
   font: 400 16px "Montserrat"
   color: #191919
-  padding: 0 20px
+  margin: 0 0px !important
+  padding: 0 !important
+  a 
+    margin: 0 0px !important
+    padding: 0 !important
+    margin-right: 10px !important
   a:hover
     color: #009146
-
-.crumbs p:first-child
-  &::after
-    content: ""
-    position: absolute
-    border-top: 1px solid black
-    border-right: 1px solid black
-    rotate: 45deg
-    top: 4px
-    right: -3px
-    width: 8px
-    height: 8px
+  &:not(:last-child)
+    .separator
+      display: inline !important
+      margin-right: 15px !important
 
 .top-info-nicetile
   padding: 70px 0
@@ -710,7 +707,7 @@ a
 .price-line
   padding: 0 50px 
   font-size: 50px
-  margin: 10px 0
+  margin: 0px 0
   display: inline-block
 
 .h2-price
@@ -732,11 +729,14 @@ a
 
 .checkbox-catalog 
   height: 20px
-  max-width: 30px
+  width: 20px
 
 .checkbox-text
   font-size: 22px
-  padding: 10px
+  word-wrap: none
+  display: flex
+  align-items: center
+  gap: 10px
 
 .section
   padding: 5px 5px 5px 0

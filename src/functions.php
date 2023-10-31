@@ -146,8 +146,9 @@ function get_products($cat_slag = 'all') {
     $products = wc_get_products(array(
         "category_id" => $products_cat->term_id,
     ));
-    $template = '
-    <div class="top-of-sells">
+    if($cat_slag == "top-sells"){
+        $template = '
+        <div class="top-of-sells">
           <h4 class="top-of-sells-h4">'.$products_cat->name.'</h4>
           <div class="cardwrap">';
           foreach($products as $product) {
@@ -183,7 +184,43 @@ function get_products($cat_slag = 'all') {
             </div>
         </div>
     ';
-    echo $template;
+    }
+    else if($cat_slag == "all") {
+        $template = '
+        <div class="cards-catalog">
+          <div class="cardwrap"> 
+        ';
+        foreach($products as $product) {
+            setup_postdata( $product );
+            $image_id = $product->image_id;
+            $image_url = wp_get_attachment_image_src( $image_id, 'full' )[0];
+            $product_name = $product->name;
+            $template .= '
+            <div class="line-cards">
+            <figure class="card">
+              <figcaption> 
+                <div class="cardimg">
+                  <div class="images"><img class="card-image" src="'.$image_url.'" alt="'.$product_name.'"/></div>
+                  <p class="card-name">'.$product_name.'</p>
+                  <p class="text-code">код товару: 
+                    <p class="code">'.$product->get_attribute('code').'</p>
+                  </p>
+                  <p class="text-producer">Виробник:
+                    <p class="producer">'.$product->get_attribute('producer').'</p>
+                  </p>
+                  <div class="stick"></div>
+                  <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+            ';
+        }
+        $template .= '</div>
+        </div>
+        ';
+    }
+    return $template;
 }
 function get_phones_list() {
     $phones = get_posts(array(

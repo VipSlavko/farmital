@@ -4,8 +4,6 @@ Template Name: Delivery
 */ 
 ?>
 <?php echo get_header(); ?>
-    <main> 
-      <div class="wrapper">
         <h1 class="h-del"><?php echo get_field("delivery_title"); ?></h1>
         <div class="new-postal-block"> 
           <div class="image-left">

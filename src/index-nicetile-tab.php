@@ -4,8 +4,6 @@ Template Name: Product
 */ 
 ?>
 <?php echo get_header(); ?>
-    <main> 
-      <div class="wrapper"> 
         <div class="top-info-nicetile"> 
           <div class="left-image-nicetile">
             <img class="image-nicetile" src="<?php echo get_path("/assets/img/kit.jpg") ?>" alt="nicetile">
