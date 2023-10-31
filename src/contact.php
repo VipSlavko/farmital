@@ -24,16 +24,8 @@ Template Name: Contact
             </div>
           </div>
           <div class="right-block" >
-            <h2 class="con-h2">Напишіть нам</h2>
-            <form class="con-form" action="">
-              <p class="your-name">Ваше імʼя</p>
-              <input class="form-text" type="text" name="name" />
-              <p class="your-email">Електронна пошта</p>
-              <input class="email-form" type="email" name="name" />
-              <p class="com">Коментар</p>
-              <textarea class="textarea" name="description" cols="30" rows="10"></textarea>
-              <input class="sub-con" type="submit" value="відправити" />
-            </form>
+            <h2 class="con-h2"><?php echo get_field("contact_title"); ?></h2>
+            <?php echo do_shortcode('[contact-form-7 id="6d8944a" title="Форма контакту"]'); ?>
           </div>
         </div>
       </div>

@@ -8,12 +8,12 @@ Template Name: Catalog
         <div class="filter">
           <h1 class="h1-filter">Фільтр</h1>
           <main>
-            <form action=""></form>
+            <form action="">
             <div class="price-catalog">
               <h2 class="h2-price">Ціна</h2>
-              <input class="price-num" type="number" name="" value="0">
+              <input class="price-num" type="number" name="min-price" value="0">
               <span class="price-line">-</span>
-              <input class="price-num" type="number" name="" value="0">
+              <input class="price-num" type="number" name="max-price" value="0">
             </div>
             <?php
             $filters = get_field("filters_list");
@@ -40,9 +40,10 @@ Template Name: Catalog
             </div>
             <?php } ?>
             <div class="buttons-catalog">
-              <input class="submit-catalog" type="submit" value="застосувати">
-              <input class="def-catalog" type="submit" value="скинути">
+              <button class="submit-catalog" type="submit" value="застосувати">
+              <button class="def-catalog" type="reset" value="скинути">
             </div>
+            </form>
           </main>
         </div>
         <?php echo get_products(); ?>
