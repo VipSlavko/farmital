@@ -20,10 +20,11 @@ Template Name: Product
             <p class="top-text-nicetile">допоміжні речовини: ПВП — 56 мг; МКЦ – 47 мг; магнію стеарат – 7 мг; целюлози ацетофталат – 22,5 мг; діетилфталат – 9,4 мг; диметикон — 3,1 мг	</p>
             <p class="top-text-nicetile">у блістері 10 шт.; в коробці 3 блістери.</p>
             <div class="buy-block">
-              <select class="select-nicetile" name=""> 
-                <option value="">Таблетки</option>
-                <option value="">Саше(Порошок)</option>
-              </select><a class="a-nicetile popup-link" href="#popup">купити</a>
+              <select class="select-nicetile" name="form"> 
+                <option value="Таблетки">Таблетки</option>
+                <option value="Саше(Порошок)">Саше(Порошок)</option>
+              </select>
+              <a class="a-nicetile popup-link" href="#popup">купити</a>
             </div>
           </div>
         </div>
