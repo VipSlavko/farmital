@@ -43,6 +43,7 @@ Template Name: Reviews
         Ваші поради та зауваження допоможуть нам стати кращими!
         </p>
         <form action="" method="post">
+        <h2 class="reviews__title">Залишити відгук</h2>
             <label>
                 <span>Ваше імʼя</span> 
                 <input type="text" name="name">
@@ -55,6 +56,7 @@ Template Name: Reviews
                 <span>Відгук</span> 
                 <textarea name="review"></textarea>
             </label>
+            <input type="submit" value="відправити">
         </form>
     </div>
 </div>
