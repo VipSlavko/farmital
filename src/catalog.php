@@ -4,10 +4,10 @@ Template Name: Catalog
 */ 
 ?>
 <?php echo get_header(); ?>
+    <main>
       <div class="main-filter">
         <div class="filter">
           <h1 class="h1-filter">Фільтр</h1>
-          <main>
             <form action="">
             <div class="price-catalog">
               <h2 class="h2-price">Ціна</h2>
@@ -40,11 +40,10 @@ Template Name: Catalog
             </div>
             <?php } ?>
             <div class="buttons-catalog">
-              <button class="submit-catalog" type="submit" value="застосувати">
-              <button class="def-catalog" type="reset" value="скинути">
+              <input class="submit-catalog" type="submit" value="застосувати">
+              <input class="def-catalog" type="reset" value="скинути">
             </div>
             </form>
-          </main>
         </div>
         <?php echo get_products(); ?>
       </div>

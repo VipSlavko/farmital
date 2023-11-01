@@ -13,7 +13,14 @@ textarea
   margin: 0
   padding: 0
   font-family: "Montserrat"
-
+body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+header,footer
+  flex: 0 1 auto
+main
+  flex: 1 0 100%
 .wrapper
   margin: 0 auto
   max-width: 1000px
@@ -737,7 +744,85 @@ form
 
 .section
   padding: 5px 5px 5px 0
-
-
-
-    
+.reviews
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  &__form
+    max-width: 402px
+    p
+      font-size: 18px
+      color: #191919
+      font-weight: 400
+      font-family: "Montserrat", sans-serif
+      margin: 0
+      &:not(:last-child)
+        margin-bottom: 10px
+    form
+      border-radius: 5px
+      background-color: #ffffff
+      border: 2px solid #009146
+      padding-right: 18px
+      padding-left: 18px
+      padding-top: 32px
+      padding-bottom: 20px
+      label
+        display: flex
+        flex-direction: column
+        span
+          display: block
+          margin-bottom: 8px
+        &:not(:last-child)
+          margin-bottom: 20px
+        input,textarea
+          font-size: 16px
+          color: #191919
+          font-weight: 500
+          font-family: "Montserrat", sans-serif
+          padding: 12px 0
+          &:focus
+            border-color: #000000
+        textarea
+          resize: none
+          min-height: 100px
+          outline: none
+          border: 2px solid #009146
+          border-radius: 5px
+  &__title
+    text-align: center
+    font-size: 30px
+    font-family: "Montserat", sans-serif
+    font-weight: 600
+    margin-bottom: 42px
+    color: #009146
+  &__list
+    max-width: 750px
+  &__item
+    border-radius: 5px
+    background-color: #f0f0f0
+    padding: 30px 22px 40px 18px
+    margin-bottom: 10px
+  &__head
+    display: flex
+    align-items: center
+    justify-content: space-between
+    h3
+      margin: 0
+      font-size: 18px
+      font-weight: 600
+      font-family: "Montserrat", sans-serif
+      color: #009146
+      line-height: 36px
+    time
+      font-size: 14px
+      font-weight: 400
+      font-family: "Montserrat", sans-serif
+      color: #191919
+      font-style: italic
+      line-height: 36px
+  & > p
+    margin: 0
+    font-size: 12px
+    color: #191919
+    font-family: "Montserrat", sans-serif
+    font-weight: 400
