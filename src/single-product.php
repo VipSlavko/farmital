@@ -2,18 +2,21 @@
 /*
 Template Name: Product 
 */ 
+global $product;
 ?>
 <?php echo get_header(); ?>
         <div class="top-info-nicetile"> 
           <div class="left-image-nicetile">
-            <img class="image-nicetile" src="<?php echo get_path("/assets/img/kit.jpg") ?>" alt="nicetile">
+            <?php $image_url = wp_get_attachment_url( $product->get_image_id() ); ?>
+            <img class="image-nicetile" src="<?php echo $image_url; ?>" alt="<?php echo the_title(); ?>">
           </div>
           <div class="right-info-nicetile">
-            <h1 class="h1-nicetile">Ніцетіл / Nicetile / Ницетил саше</h1>
-            <p class="price-nicetile">499, 99 грн</p>
-            <p class="producer-nicetile">Виробник: ІТАЛІЯ</p>
+            <h1 class="h1-nicetile"><?php echo the_title(); ?></h1>
+            <p class="price-nicetile"><?php echo $product->get_price_html(); ?></p>
+            <p class="producer-nicetile">Виробник: <?php echo $product->get_attribute( "producer" ); ?></p>
             <p class="code-nicetile">Товар: в наявності</p>
-            <p class="response">15 відгуків</p><a class="view-all" href="#">переглянути усі</a>
+            <p class="response">15 відгуків</p>
+            <a class="view-all" href="#">переглянути усі</a>
             <p class="top-h-nicetile">Склад та форма випуску:</p>
             <p class="top-text-nicetile">Таблетки, покриті кишковорозчинною оболонкою	1 табл.</p>
             <p class="top-text-nicetile">L-ацетилкарнітину гідрохлорид	590 мг</p>

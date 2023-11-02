@@ -42,7 +42,7 @@ Template Name: Reviews
         <p>
         Ваші поради та зауваження допоможуть нам стати кращими!
         </p>
-        <form action="" method="post">
+        <form action="#" method="post">
         <h2 class="reviews__title">Залишити відгук</h2>
             <label>
                 <span>Ваше імʼя</span> 

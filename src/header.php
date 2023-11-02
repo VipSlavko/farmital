@@ -19,12 +19,7 @@
           </div>
           <div class="search">
             <div class="search-container">
-              <form action="">
-                <label class="search-label">
-                  <input class="text-head" type="text" placeholder="Пошук препарату">
-                  <button class="sub-head" type="submit">Пошук</button>
-                </label>
-              </form>
+              <?php $string = get_product_search_form(true); ?>
             </div>
           </div>
           <?php echo get_phones(); ?>
