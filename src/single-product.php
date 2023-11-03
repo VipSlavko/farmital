@@ -45,7 +45,7 @@ global $product;
               <figcaption> 
                 <div class="cardimg">
                   <div class="images">
-                    <img class="card-image" src="<?php echo $image_url; ?>" alt="nicetile"/>
+                    <img class="card-image" src="<?php echo $image_url; ?>" alt="<?php echo get_the_title($product_item->ID); ?>"/>
                   </div>
                   <p class="card-name"><?php echo get_the_title($product_item->ID); ?></p>
                   <p class="text-code">код товару: 
