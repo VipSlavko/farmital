@@ -1,48 +1,36 @@
 <?php
 /*
 Template Name: Reviews 
-*/ 
+*/
+
 ?>
 <?php echo get_header(); ?>
-<h1 class="reviews__title">Відгуки</h1>
+<?php
+$category = get_category_by_slug("reviews");
+$reviews = get_posts(array(
+    "category_name" => "reviews",
+    "order" => "ASC",
+    "order_by" => "date",
+));
+?>
+<h1 class="reviews__title"><?php echo $category->name; ?></h1>
 <div class="reviews">
     <div class="reviews__list">
+        <?php foreach ($reviews as $review) : setup_postdata($review); ?>
         <article class="reviews__item">
             <div class="reviews__head">
-                <h3 class="reviews__author" role="author">Олександр</h3>
-                <time class="reviews__time" datetime="15.06.2023">15.06.2023</time>
+                <h3 class="reviews__author" role="author"><?php echo get_the_title($review->ID); ?></h3>
+                <time class="reviews__time" datetime="<?php echo get_post_time("d.m.Y", false, null, true) ?>"><?php echo get_post_time("d.m.Y", false, null, true) ?></time>
             </div>
             <p class="reviews__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
+            <?php echo get_the_content(); ?>
             </p>
         </article>
-        <article class="reviews__item">
-            <div class="reviews__head">
-                <h3 class="reviews__author" role="author">Олександр</h3>
-                <time class="reviews__time" datetime="15.06.2023">15.06.2023</time>
-            </div>
-            <p class="reviews__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-            </p>
-        </article>
-        <article class="reviews__item">
-            <div class="reviews__head">
-                <h3 class="reviews__author" role="author">Олександр</h3>
-                <time class="reviews__time" datetime="15.06.2023">15.06.2023</time>
-            </div>
-            <p class="reviews__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-            </p>
-        </article>
+        <?php endforeach; ?>
     </div>
     <div class="reviews__form">
-        <p>
-        Для нас ДУЖЕ ЦІННИЙ ваш відгук! Що хотілося б покращити? 
-        </p>
-        <p>
-        Ваші поради та зауваження допоможуть нам стати кращими!
-        </p>
-        <form action="#" method="post">
+        <?php echo get_field("disklamer"); ?>
+        <form action="<?php echo esc_url(home_url("/reviews")); ?>" method="post">
         <h2 class="reviews__title">Залишити відгук</h2>
             <label>
                 <span>Ваше імʼя</span> 

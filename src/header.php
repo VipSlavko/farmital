@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["review"])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $review = $_POST["review"];
+    $category = get_category_by_slug( "reviews" );
+    wp_insert_post(array(
+        "post_content" => $review,
+        "post_title" => $name,
+        "post_category" => array($category->term_id)
+    ));
+    $redirect = esc_url(home_url("/reviews"));
+    wp_redirect($redirect);
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html <?php echo get_language_attributes(); ?> >
   <head>
