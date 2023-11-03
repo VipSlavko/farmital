@@ -32,61 +32,38 @@ global $product;
         </div>
         <div class="similar-products"> 
           <h6 class="top-of-sells-h4">Схожі товари</h6>
-          <div class="cardwrap"> 
-            <figure class="card">
+          <div class="cardwrap">
+            <?php
+            $products_cat = get_term_by( 'slug', "all", 'product_cat' );
+            $products = wc_get_products(array(
+                "category_id" => $products_cat->term_id,
+            ));
+            foreach ( $products as $product_item ) {
+              setup_postdata($product_item); ?>
+              <figure class="card">
+              <?php $image_url = wp_get_attachment_url($product_item->get_image_id()); ?>
               <figcaption> 
                 <div class="cardimg">
                   <div class="images">
-                    <img class="card-image" src="<?php echo get_path("/assets/img/nicetile.jpg"); ?>" alt="nicetile"/>
+                    <img class="card-image" src="<?php echo $image_url; ?>" alt="nicetile"/>
                   </div>
-                  <p class="card-name">Ніцетіл, Ницетил - (Nicetile), саше</p>
+                  <p class="card-name"><?php echo get_the_title($product_item->ID); ?></p>
                   <p class="text-code">код товару: 
-                    <p class="code">247589</p>
+                    <p class="code"><?php echo $product_item->get_attribute("code"); ?></p>
                   </p>
                   <p class="text-producer">Виробник:
-                    <p class="producer">Італія</p>
+                    <p class="producer"><?php echo $product_item->get_attribute("producer"); ?></p>
                   </p>
                   <div class="stick"></div>
-                  <p class="price">1180 грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
+                  <p class="price"><?php echo $product_item->get_price_html(); ?>/уп</p>
+                  <a class="btn popup-link" href="#popup">у кошик </a>
                 </div>
               </figcaption>
-            </figure>
-            <figure class="card">
-              <figcaption> 
-                <div class="cardimg">
-                  <div class="images"><img class="card-image" src="<?php echo get_path("/assets/img/nicetile.jpg"); ?>" alt="nicetile"/></div>
-                  <p class="card-name">Ніцетіл, Ницетил - (Nicetile), саше</p>
-                  <p class="text-code">код товару: 
-                    <p class="code">247589</p>
-                  </p>
-                  <p class="text-producer">Виробник:
-                    <p class="producer">Італія</p>
-                  </p>
-                  <div class="stick"></div>
-                  <p class="price">1180 грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="card">
-              <figcaption> 
-                <div class="cardimg">
-                  <div class="images">
-                    <img class="card-image" src="<?php echo get_path("/assets/img/nicetile.jpg"); ?>" alt="nicetile"/>
-                  </div>
-                  <p class="card-name">Ніцетіл, Ницетил - (Nicetile), саше</p>
-                  <p class="text-code">код товару: 
-                    <p class="code">247589</p>
-                  </p>
-                  <p class="text-producer">Виробник:
-                    <p class="producer">Італія</p>
-                  </p>
-                  <div class="stick"></div>
-                  <p class="price">1180 грн/уп</p><a class="btn popup-link" href="#popup">у кошик</a>
-                </div>
-              </figcaption>
-            </figure>
+            </figure> 
+            <?php wp_reset_postdata();
+            }
+            ?>
           </div>
         </div>
       </div>
-    </main>
 <?php echo get_footer(); ?>
