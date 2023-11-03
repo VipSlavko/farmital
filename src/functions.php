@@ -230,7 +230,7 @@ function get_phones_list() {
     <ul class="con-list">';
     foreach ($phones as $phone) {
         setup_postdata( $phone );
-        $template .= '<li>'.get_the_title($phone->ID).'</li>';
+        $template .= '<li><a href="tel:'.wp_strip_all_tags(get_the_content()).'">'.get_the_title($phone->ID).'</a></li>';
         wp_reset_postdata();
     }
     $template .= '</ul>';

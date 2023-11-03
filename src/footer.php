@@ -1,3 +1,12 @@
+<div class="popup" id="popup">
+  <div class="popup-body"> 
+    <div class="popup-content"> <a class="popup-close close-popup" href="#">+</a>
+      <p class="popup-h">Оформлення замовлення</p>
+      <p class="popup-text">Щоб замовити продукт поздвоніть на данні номери:</p>
+      <?php echo get_phones_list(); ?>
+    </div>
+  </div>
+</div>
 </div>
 </main>
 <footer>
