@@ -236,4 +236,57 @@ function get_phones_list() {
     $template .= '</ul>';
     return $template; 
 }
+function get_reviews_html($limit = 5) {
+    $current_page = isset($_GET["pagenum"]) ? $_GET["pagenum"] : 1;
+    $args = array(
+        'category_name' => "reviews", // ID категорії
+        'post_type' => 'post', // Тип постів (може відрізнятися залежно від налаштувань)
+        'post_status' => 'publish', // Статус опублікованих постів
+        'posts_per_page' => -1 // Показувати всі пости в категорії
+    );
+    
+    $query = new WP_Query($args);
+    $category_post_count = $query->found_posts; 
+    $pages = $category_post_count / $limit;
+    $pages = ($pages < 1 && $pages > 0) ? 1 : $pages;
+    $reviews = get_posts(array(
+        "category_name" => "reviews",
+        "order" => "DESC",
+        "order_by" => "date",
+        "posts_per_page" => $limit,
+        "offset" => ($current_page - 1) * $limit,
+));
+    $template = '
+    <div class="reviews__list">';
+    foreach ($reviews as $review) {
+        setup_postdata($review);
+        $time = get_post_time("d.m.Y", false, null, true);
+        $template .= '<article class="reviews__item">
+            <div class="reviews__head">
+                <h3 class="reviews__author" role="author">'.get_the_title($review->ID).'</h3>
+                <time class="reviews__time" datetime="'.$time.'">'.$time.'</time>
+            </div>
+            <p class="reviews__content">
+            '.get_the_content().'
+            </p>
+        </article>';
+        wp_reset_postdata();
+    }
+    $template .= '<div class="pagination">';
+    if($current_page > 1) {
+        $prev = $current_page - 1;
+        $template .= '<a class="pagination__item" href="?pagenum='.$prev.'"><</a>';
+    }
+    for($i = 1; $i <= $pages; $i++) {
+        $active = $current_page == $i ? ' active' : '';
+        $template .= '<a class="pagination__item'.$active.'" href="?pagenum='.$i.'">'.$i.'</a>';
+    }
+    if($current_page < $pages) {
+        $next = $current_page + 1;
+        $template .= '<a class="pagination__item" href="?pagenum='.$next.'">></a>';
+    }
+    $template .= '</div>';
+    $template .= '</div>';
+    return $template;
+}
 ?>

@@ -805,13 +805,29 @@ form
   &__title
     text-align: center
     font-size: 30px
-    font-family: "Montserat", sans-serif
+    font-family: "Montserrat", sans-serif
     font-weight: 600
     margin-bottom: 42px
     color: #009146
   &__list
     max-width: 750px
     width: 100%
+    .pagination
+      display: flex
+      align-items: center
+      justify-content: center
+      gap: 5px
+      &__item
+        padding: 8px
+        border-radius: 5px
+        font-size: 14px
+        color: #191919
+        font-weight: 500
+        font-family: "Montserrat", sans-serif
+        transition: .3s ease all
+        &.active, &:hover
+          background-color: #009146
+          color: #fff
   &__item
     border-radius: 5px
     background-color: #f0f0f0
