@@ -239,7 +239,7 @@ function get_phones_list() {
 function get_reviews_html($limit = 5) {
     $current_page = isset($_GET["pagenum"]) ? $_GET["pagenum"] : 1;
     $args = array(
-        'category_name' => "reviews", // ID категорії
+        'category_name' => "reviews",
         'post_type' => 'post', // Тип постів (може відрізнятися залежно від налаштувань)
         'post_status' => 'publish', // Статус опублікованих постів
         'posts_per_page' => -1 // Показувати всі пости в категорії
