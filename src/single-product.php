@@ -98,9 +98,10 @@ $category_post_count = $query->found_posts;
             }
             ?>
           </div>
-          <?php } ?>
-          <?php
-          echo get_products('top-sells') 
+          <?php } 
+          else {
+          echo get_products('top-sells');
+          } 
           ?>
         </div>
       </div>
