@@ -3,6 +3,10 @@ add_action('wp_enqueue_scripts', function(){
     wp_enqueue_style('style', get_path('/assets/css/style.min.css'), array(), 'null', false);
     wp_enqueue_script('scripr', get_path('/assets/js/script.js'), array(), 'null', true);
 });
+	
+	
+add_filter( 'wpcf7_validate_configuration', '__return_false' );
+
 function load_bloody_tinymce(){
 
     wp_enqueue_script( 'bloody_tinymce_js_main', includes_url() . 'js/tinymce/tinymce.min.js' );
