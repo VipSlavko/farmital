@@ -89,7 +89,6 @@ if($max <= $min) {
           } ?>
             <div class="buttons-catalog">
               <input class="submit-catalog" type="submit" value="застосувати">
-              <!-- <input class="def-catalog" type="reset" value="скинути"> -->
               <a href="<?php echo esc_url(home_url("/catalog")) ?>" class="def-catalog">скинути</a>
             </div>
             </form>
