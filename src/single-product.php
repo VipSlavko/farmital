@@ -33,7 +33,7 @@ $category_post_count = $query->found_posts;
           <div class="left-image-nicetile">
             <?php 
             $image_url = wp_get_attachment_url($product->get_image_id());
-            $id = $product->get_id();
+            $id = $product->ID;
             ?>
             <img class="image-nicetile" src="<?php echo $image_url; ?>" alt="<?php echo the_title(); ?>">
           </div>
@@ -59,12 +59,13 @@ $category_post_count = $query->found_posts;
         </div>
         <div class="similar-products">
         <?php
-            $products = wc_get_products(array(
+            $products_old = wc_get_products(array(
                 "category" => $categories_ids,
             )); 
-          for($i = 0; $i < count($products); $i++) {
-            if($id == $products[$i]->get_id()) {
-              unset($products[$i]);
+            $products = array();
+          for($i = 0; $i < count($products_old); $i++) {
+            if($product->get_id() != $products_old[$i]->get_id()) {
+              $products[] = $products_old[$i];
             }
           }
           if(count($products) > 0) {
@@ -79,9 +80,9 @@ $category_post_count = $query->found_posts;
               <figcaption> 
                 <div class="cardimg">
                   <div class="images">
-                    <img class="card-image" src="<?php echo $image_url; ?>" alt="<?php echo get_the_title($product_item->ID); ?>"/>
+                    <img class="card-image" src="<?php echo $image_url; ?>" alt="<?php echo get_the_title($product_item->get_id()); ?>"/>
                   </div>
-                  <p class="card-name"><?php echo get_the_title($product_item->ID); ?></p>
+                  <p class="card-name"><?php echo get_the_title($product_item->get_id()); ?></p>
                   <p class="text-code">код товару: 
                     <p class="code"><?php echo $product_item->get_attribute("code"); ?></p>
                   </p>
