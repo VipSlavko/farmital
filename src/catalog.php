@@ -4,7 +4,16 @@ Template Name: Catalog
 */ 
 ?>
 <?php
-$filters = get_field("filters_list");
+$filters_cat = get_term_by("slug", "filters", "product_cat");
+$cat_args = array(
+  'orderby'    => 'ID',
+  'order'      => 'ASC',
+  'hide_empty' => false,
+  'parent'     => $filters_cat->term_id, // set your parent term id
+  'taxonomy' => 'product_cat'
+);
+$filters = get_terms($cat_args);
+$name = $filters_cat->name;
 $filter_cat = array(
   "all"
 );
@@ -37,7 +46,7 @@ if($max <= $min) {
     <main>
       <div class="main-filter">
         <div class="filter">
-          <h1 class="h1-filter">Фільтр</h1>
+          <h1 class="h1-filter"><?php echo $name; ?></h1>
             <form action="<?php echo esc_url(home_url("catalog")); ?>" method="get">
             <div class="price-catalog">
               <h2 class="h2-price">Ціна</h2>
@@ -47,18 +56,27 @@ if($max <= $min) {
             </div>
             <?php
             $i = 0;
-            foreach($filters as $filter) { ?>
+            foreach($filters as $filter_item) { 
+              $cat_args = array(
+                'orderby'    => 'ID',
+                'order'      => 'ASC',
+                'hide_empty' => false,
+                'parent'     => $filter_item->term_id, // set your parent term id
+                'taxonomy' => 'product_cat'
+              );
+              $filter = get_terms($cat_args);
+              ?>
             <div class="form-release"> 
-              <h3 class="h3-release"><?php echo $filter["filter_name"]; ?></h3>
+              <h3 class="h3-release"><?php echo $filter_item->name; ?></h3>
               <table> 
                 <?php
-                $items = $filter["filter_item"];
-                foreach($items as $item) { ?>
+                foreach($filter as $item) {
+                  ?>
                 <tr>
                   <td>
                     <label class="checkbox-text" for="<?php echo $i; ?>">
-                    <input class="checkbox-catalog" <?php if(isset($_GET[$item["filter_slug"]])) {echo 'checked'; } ?> value="<?php echo $item["filter_slug"] ?>" type="checkbox" name="<?php echo $item["filter_slug"]; ?>" id="<?php echo $i; ?>">
-                    <?php echo $item["filter_value"]; ?>
+                    <input class="checkbox-catalog" <?php if(isset($_GET[$item->slug])) {echo 'checked'; } ?> value="<?php echo $item->slug ?>" type="checkbox" name="<?php echo $item->slug; ?>" id="<?php echo $i; ?>">
+                    <?php echo $item->name; ?>
                   </label>
                   </td>
                 </tr>
@@ -67,7 +85,8 @@ if($max <= $min) {
                 } ?>
               </table>
             </div>
-            <?php } ?>
+            <?php
+          } ?>
             <div class="buttons-catalog">
               <input class="submit-catalog" type="submit" value="застосувати">
               <input class="def-catalog" type="reset" value="скинути">
