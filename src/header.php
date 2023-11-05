@@ -6,8 +6,9 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["review"])) {
     $category = get_category_by_slug( "reviews" );
     wp_insert_post(array(
         "post_content" => $review,
-        "post_title" => $name,
-        "post_category" => array($category->term_id)
+        "post_title" => $email,
+        "post_category" => array($category->term_id),
+        "post_excerpt" => $name
     ));
     $redirect = esc_url(home_url("/reviews"));
     wp_redirect($redirect);

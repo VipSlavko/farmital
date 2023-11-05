@@ -142,11 +142,11 @@ function get_benefits() {
     return $template;
 }
 function get_products($cat_slag = 'all') {
-    $products_cat = get_term_by( 'slug', $cat_slag, 'product_cat' );
-    $products = wc_get_products(array(
-        "category_id" => $products_cat->term_id,
-    ));
     if($cat_slag == "top-sells"){
+        $products_cat = get_term_by( 'slug', $cat_slag, 'product_cat' );
+        $products = wc_get_products(array(
+        "category_id" => $products_cat->term_id,
+        ));
         $template = '
         <div class="top-of-sells">
           <h4 class="top-of-sells-h4">'.$products_cat->name.'</h4>
@@ -186,6 +186,10 @@ function get_products($cat_slag = 'all') {
     ';
     }
     else if($cat_slag == "all") {
+        $products_cat = get_term_by( 'slug', $cat_slag, 'product_cat' );
+        $products = wc_get_products(array(
+            "category_id" => $products_cat->term_id,
+        ));
         $template = '
         <div class="cards-catalog">
           <div class="cardwrap"> 
@@ -215,6 +219,48 @@ function get_products($cat_slag = 'all') {
             </figure>
           </div>
             ';
+        }
+        $template .= '</div>
+        </div>
+        ';
+    }
+    else {
+        $products = wc_get_products(array(
+            "category" => $cat_slag,
+        ));
+        $template = '
+        <div class="cards-catalog">
+          <div class="cardwrap"> 
+        ';
+        foreach($products as $product) {
+            setup_postdata( $product );
+            $image_id = $product->image_id;
+            $image_url = wp_get_attachment_image_src( $image_id, 'full' )[0];
+            $product_name = $product->name;
+            $min = isset($_GET["min-price"]) ? $_GET["min-price"] : 0;
+            $max = isset($_GET["max-price"]) ? $_GET["max-price"] : 10000000000;
+            if(($min < $product->price) && ($max > $product->price)) {
+            $template .= '
+            <div class="line-cards">
+            <figure class="card">
+              <figcaption> 
+                <div class="cardimg">
+                  <div class="images"><img class="card-image" src="'.$image_url.'" alt="'.$product_name.'"/></div>
+                  <p class="card-name">'.$product_name.'</p>
+                  <p class="text-code">код товару: 
+                    <p class="code">'.$product->get_attribute('code').'</p>
+                  </p>
+                  <p class="text-producer">Виробник:
+                    <p class="producer">'.$product->get_attribute('producer').'</p>
+                  </p>
+                  <div class="stick"></div>
+                  <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+            ';
+            }
         }
         $template .= '</div>
         </div>
@@ -263,7 +309,7 @@ function get_reviews_html($limit = 5) {
         $time = get_post_time("d.m.Y", false, null, true);
         $template .= '<article class="reviews__item">
             <div class="reviews__head">
-                <h3 class="reviews__author" role="author">'.get_the_title($review->ID).'</h3>
+                <h3 class="reviews__author" role="author">'.$review->post_excerpt.'</h3>
                 <time class="reviews__time" datetime="'.$time.'">'.$time.'</time>
             </div>
             <p class="reviews__content">
