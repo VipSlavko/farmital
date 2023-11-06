@@ -14,9 +14,7 @@ $cat_args = array(
 );
 $filters = get_terms($cat_args);
 $name = $filters_cat->name;
-$filter_cat = array(
-  "all"
-);
+$filter_cat = array();
 $min = 0; 
 $max = 0;
 $i = 0;
@@ -27,6 +25,9 @@ foreach ($_GET as $param) {
   }
   if((isset($_GET["max-price"]) && $param == $_GET["max-price"])) {
     $max = $param;
+    continue;
+  }
+  if((isset($_GET["current-page"]) && $param == $_GET["current-page"])) {
     continue;
   }
   $filter_cat[$i] = $param;
@@ -93,7 +94,7 @@ if($max <= $min) {
             </div>
             </form>
         </div>
-        <?php echo get_products($filter_cat); ?>
+        <?php echo get_products($filter_cat, 6); ?>
       </div>
     </div>
 <?php echo get_footer(); ?>

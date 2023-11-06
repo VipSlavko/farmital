@@ -145,7 +145,7 @@ function get_benefits() {
     $template .= '</div>';
     return $template;
 }
-function get_products($cat_slag = 'all') {
+function get_products(array| string $cat_slag = 'all', $limit = 6) {
     if($cat_slag == "top-sells"){
         $products_cat = get_term_by( 'slug', $cat_slag, 'product_cat' );
         $products = wc_get_products(array(
@@ -228,13 +228,36 @@ function get_products($cat_slag = 'all') {
         </div>
         ';
     }
-    else {
+    else if(is_array($cat_slag)) {
+        $cat_ids = '';
+        for($i = 0; $i < count($cat_slag); $i++) {
+            $cat_id = $cat_slag[$i];
+            $category = get_term_by("slug", $cat_id, "product_cat", "ARRAY_A" );
+            if($category) {
+                $cat_ids .= $category["term_id"];
+                if($i < count($cat_slag) - 1) {
+                    $cat_ids .= ', ';
+                }
+            }
+        }
+        $args = array(
+            'cat' => $cat_ids,
+            'post_type' => 'product', // Тип постів (може відрізнятися залежно від налаштувань)
+            'post_status' => 'publish', // Статус опублікованих постів
+            'posts_per_page' => -1 // Показувати всі пости в категорії
+        );
+        $query = new WP_Query($args);
+        $products_count = $query->found_posts;
+        $pages = $products_count / $limit;
+        $pages = ($pages < 1) ? 1 : $pages;
+        $current_page = isset($_GET["current-page"]) ? (int)$_GET["current-page"] : 1;
         $products = wc_get_products(array(
             "category" => $cat_slag,
-        ));
+            'limit' => $limit,
+            "page" => $current_page 
+            ));
         $template = '
         <div class="cards-catalog">
-          <div class="cardwrap"> 
         ';
         foreach($products as $product) {
             setup_postdata( $product );
@@ -245,10 +268,8 @@ function get_products($cat_slag = 'all') {
             $max = isset($_GET["max-price"]) ? $_GET["max-price"] : 10000000000;
             if(($min < $product->price) && ($max > $product->price)) {
             $template .= '
-            <div class="line-cards">
             <figure class="card">
               <figcaption> 
-                <div class="cardimg">
                   <div class="images"><img class="card-image" src="'.$image_url.'" alt="'.$product_name.'"/></div>
                   <p class="card-name">'.$product_name.'</p>
                   <p class="text-code">код товару: 
@@ -259,14 +280,34 @@ function get_products($cat_slag = 'all') {
                   </p>
                   <div class="stick"></div>
                   <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
-                </div>
               </figcaption>
             </figure>
-          </div>
             ';
             }
         }
-        $template .= '</div>
+        $template .= '<div class="pagination">';
+        function generate_url(int $page_number): string {
+            global $wp;
+            $old = add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
+            $new = add_query_arg(array(
+                "current-page" => $page_number
+
+            ), $old);
+            return $new;
+        }
+    if($current_page > 1) {
+        $prev = $current_page - 1;
+        $template .= '<a class="pagination__item" href="'.generate_url($prev).'"><</a>';
+    }
+    for($i = 1; $i <= $pages; $i++) {
+        $active = $current_page == $i ? ' active' : '';
+        $template .= '<a class="pagination__item'.$active.'" href="'.generate_url($i).'">'.$i.'</a>';
+    }
+    if($current_page < $pages) {
+        $next = $current_page + 1;
+        $template .= '<a class="pagination__item" href="'.generate_url($next).'">></a>';
+    }
+    $template .= '</div>
         </div>
         ';
     }
