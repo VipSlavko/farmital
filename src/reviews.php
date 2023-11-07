@@ -7,7 +7,8 @@ $category = get_category_by_slug("reviews");
 <?php echo get_header(); ?>
 <h1 class="reviews__title"><?php echo $category->name; ?></h1>
 <div class="reviews">
-    <?php echo get_reviews_html(); ?>
+<?php $limit = (int)get_field("limit"); ?>
+    <?php echo get_reviews_html($limit); ?>
     <div class="reviews__form">
         <?php echo get_field("disklamer"); ?>
         <form action="<?php echo esc_url(home_url("/reviews")); ?>" method="post">

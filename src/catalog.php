@@ -94,7 +94,8 @@ if($max <= $min) {
             </div>
             </form>
         </div>
-        <?php echo get_products($filter_cat, 6); ?>
+        <?php $limit = (int)get_field("limit"); ?>
+        <?php echo get_products($filter_cat, $limit); ?>
       </div>
     </div>
 <?php echo get_footer(); ?>
