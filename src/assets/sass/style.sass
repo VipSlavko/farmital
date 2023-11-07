@@ -285,64 +285,82 @@ a
   padding-bottom: 100px
 
 .left-block
-  padding: 30px 0 30px 30px
-
+  max-width: 592px
+  width: 100%
+  p
+    margin: 0
+    padding: 0
 .background-left-block
-  padding: 50px 200px 50px 50px
+  padding-left: 50px
+  padding-top: 28px
+  padding-bottom: 28px
   background-color: #f0f0f0
 
 
-.contacts-people
+p.contacts-people
   font-size: 23px
   font-weight: bold
   padding-right: 5px
   display: inline-block
-
-.volodya-i-katuha
+  margin-bottom: 29px
+  margin-top: 0px
+p.volodya-i-katuha
   font-size: 20px
   display: inline-block
 
-.hours-of-work
+p.hours-of-work
   font-weight: bold
   font-size: 25px
-
-.hours
+  padding: 0
+  margin: 0
+  margin-bottom: 15px
+p.hours
   font-weight: bold
   font-size: 16px
-
-.email-text
+  padding: 0
+  margin: 0
+  margin-bottom: 24px
+p.email-text
   font-weight: bold
   font-size: 25px
-
-.telephones
+  margin-bottom: 11px
+p.telephones
   font-weight: bold
   font-size: 25px
+  margin: 0
+  padding: 0
+  margin-bottom: 12px
 
 .con-list
   font-size: 16px
   list-style: none
-
-.emails
+  margin-bottom: 23px
+p.emails
   font-size: 16px
-
-.mesengers
+  margin-bottom: 24px
+p.mesengers
   font-weight: 600
   font-size: 25px
-
+  margin-bottom: 10px
 .con-logo
   padding: 0 10px
 
 .right-block
   padding: 0 30px
-  max-width: 500px
+  max-width: 401px
+  width: 100%
   border: 2px solid #009146
   border-radius: 5px
-
+  padding-top: 28px
+  
 .con-h2
   text-align: center
   color: #009146
   font-weight: 600
   font-size: 35px
+  margin-top: 0
+  margin-bottom: 0
+  padding: 0
 
 form
   label
@@ -354,16 +372,17 @@ form
     padding: 15px
     margin-top: 10px
     font-size: 16px
-    border: 2px solid #009146
+    border: 1px solid #000
     border-radius: 5px
     max-width: 100%
     display: block
     width: calc( 100% - 30px ) 
+    outline: none
   .textarea
     width: 100%
     height: 200px
     resize: none
-    border: 2px solid #009146
+    border: 1px solid #000
     border-radius: 5px
     margin-bottom: 25px
 
@@ -779,6 +798,7 @@ form
 .reviews
   display: flex
   align-items: flex-start
+  margin-bottom: 76px
   justify-content: space-between
   &__form
     max-width: 402px
@@ -818,13 +838,12 @@ form
           padding: 12px 0px
           padding-left: 10px
           max-width: 348px
-          &:focus
-            border-color: #000000
+          outline: none
+          border: 1px solid #000000
         textarea
           resize: none
           min-height: 100px
           outline: none
-          border: 2px solid #009146
           border-radius: 5px
       input[type="submit"]
         color: #ffffff
@@ -835,9 +854,13 @@ form
         text-align: center
         position: static
         border-radius: 10px
-        background-color: #15b361
+        background-color: #0e9750
         cursor: pointer
-        border-color: #15b361
+        border-color: #0e9750
+        transition: .3s all ease
+        &:hover
+          background-color: #15b361
+          border-color: #15b361
   &__title
     text-align: center
     font-size: 30px
