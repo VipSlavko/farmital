@@ -13,7 +13,7 @@ if(popupLinks.length > 0) {
         popupLink.addEventListener("click", function (e){
             const popupName = popupLink.getAttribute('href').replace('#', '')
             const curentPopoup = document.getElementById(popupName)
-            popupOpen(curentPopup)
+            popupOpen(curentPopoup)
             e.preventDefault()
         })
     }
