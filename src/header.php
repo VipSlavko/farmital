@@ -26,10 +26,6 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["review"])) {
   <body>
     <header>
       <div class="wrapper">
-        <div class="burger-menu">
-          <span>
-          </span>
-        </div>
         <div class="header-top">
           <div class="logo">
               <?php echo get_logo(); ?>
@@ -40,6 +36,10 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["review"])) {
             </div>
           </div>
           <?php echo get_phones(); ?>
+          <div class="burger-menu">
+          <span>
+          </span>
+        </div>
         </div>
       </div>
       <div class="header-bottom">

@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+export function burger() {
+  document.addEventListener("DOMContentLoaded", function () {
     const burgerButton = document.querySelector(".burger-button");
     const menu = document.querySelector(".menu");
   
@@ -6,3 +7,4 @@ document.addEventListener("DOMContentLoaded", function () {
       menu.classList.toggle("active");
     });
 });  
+}

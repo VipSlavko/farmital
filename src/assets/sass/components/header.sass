@@ -3,17 +3,26 @@
     display: flex
     justify-content: space-between
     align-items: center
-
 .search
-    width: 550px
-
+    max-width: 550px
+    width: 100%
+    @media screen and ( max-width: 914px )
+        order: 3
+        max-width: 100%
 .search-container
     display: flex
     align-items: center
     justify-content: center
     margin: 20px
-    width: 100%
-
+    @media screen and ( max-width: 914px )
+        margin-left: 0
+        margin-right: 0
+.header-top
+    padding-left: 18px
+    padding-right: 18px
+    flex-wrap: wrap
+    @media screen and ( max-width: 914px )
+        padding-top: 30px
 .search-container form
     width: 100%
 
@@ -50,7 +59,8 @@ button
     color: #191919
     a
         text-decoration: none
-
+    @media screen and ( max-width: 914px )
+        display: none
 
 .basket
     position: relative
@@ -82,24 +92,25 @@ a
 
 .mob
   position: relative
-
+  padding-left: 26px
 .mob::before
-  content: url('../img/phone.png')
-  position: absolute
-  top: 50%
-  transform: translateY(-50%)
-  left: -25px
+    content: url('../img/phone.png')
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
 
 .header-bottom
   max-width: 1960px
   background-color: $green
-
+  @media screen and ( max-width: 914px )
+    display: none
+    
 .header-bottom ul
   margin: 0 auto
   list-style: none
   display: flex
   justify-content: space-between
-
 .header-bottom a
   font: 500 16px "Montserrat"
   text-transform: uppercase
@@ -107,12 +118,15 @@ a
   text-align: center
   border-right: 2px solid #fff
   padding-right: 30px
-
-  &:hover
-    color: #a4a4a4
+  transition: .3s all ease
 
 .header-bottom li:last-child a
   border-right: none
 
 .header-bottom li
   padding: 20px 0 20px 30px
+  transition: .3s all ease
+  &:hover
+    background-color: #15b361
+    a
+        border-right-color: transparent
