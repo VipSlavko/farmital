@@ -1,28 +1,36 @@
 footer
     background-color: #f0f0f0
-    padding: 30px 0
+    padding: 30px 0px
     width: 100%
+    .wrapper
+        max-width: 1276px
+.footer
+    padding: 0 18px
 .footer>.phone
     display: flex
     flex-direction: column
-    align-items: flex-start
+    align-items: center
     justify-content: center
+    &::before
+        left: 0
+        transform: translate(0%, -50%)
     p
         margin: 0
         line-height: normal
         margin-bottom: 5px
 .footer>div
     border-right: 2px solid #109852
-    padding-right: 55px
+    &:not(:last-child)
+        padding-right: 64px
 .footer>.messengers
     padding: 15.1px 55px 15.1px 0
-
+    padding-right: 0
 .footer>div:last-child
     border: none
 
 .footer
     display: flex
-    justify-content: space-between
+    gap: 66px
 footer ul 
     display: flex
     max-width: 306px
@@ -85,4 +93,24 @@ footer li
         font: 500 14px "Montserrat"
         color: #191919
         text-align: center
-
+.footer-menu
+    max-width: 266px
+    ul
+        gap:  20px
+    a
+        font-size: 14px
+        color: #191919
+        &::after
+            content: ""
+            display: block
+            width: 0
+            height: 2px
+            margin-top: 5px
+            background-color: #009146
+            transition: .3s all ease
+            font-family: "Montserat", sans-serif
+        &:hover
+            color: #191919
+            font-weight: 500
+            &::after
+                width: 100%
