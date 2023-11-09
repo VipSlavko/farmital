@@ -2,7 +2,15 @@ footer
     background-color: #f0f0f0
     padding: 30px 0
     width: 100%
-
+.footer>.phone
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    p
+        margin: 0
+        line-height: normal
+        margin-bottom: 10px
 .footer>div
     border-right: 2px solid #109852
     padding-right: 55px
@@ -15,7 +23,6 @@ footer
 .footer
     display: flex
     justify-content: space-between
-    vertical-align: middle
 footer ul 
     display: flex
     max-width: 306px
@@ -63,11 +70,12 @@ footer li
 
 .url
     position: relative
+    padding-left: 34px
     &:before
         content: url(../img/mail.png)
         position: absolute
         top: 0
-        left: -35px
+        left: 0
 
 .copyright
     display: flex
