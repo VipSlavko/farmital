@@ -140,9 +140,15 @@ footer li
         flex-direction: column
         align-items: stretch
         gap: 27px
+        .phones-wrapper
+            display: flex
+            flex-direction: column
+            align-items: center
         .phone
+            display: block
+            max-width: fit-content
             &::before
-                transform: translateY(-100%)
+                transform: translateY(-50%)
                 left: 0%
         & > div
             max-width: 100%

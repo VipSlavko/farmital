@@ -69,7 +69,7 @@ function get_phones($in_popub = false) {
     $phones = get_posts(array(
         "category_name" => "phones"
     ));
-    $template = '<div class="phone'.$extra_class.' mob">
+    $template = '<div class="phones-wrapper"><div class="phone'.$extra_class.' mob">
     ';
     foreach($phones as $phone) {
         setup_postdata($phone);
@@ -82,7 +82,7 @@ function get_phones($in_popub = false) {
         $template.= '</b></a></p>';
         wp_reset_postdata();
     }
-    $template .= '</div>';
+    $template .= '</div></div>';
     return $template;
 }
 function get_sociables($in_popub = false) {
