@@ -188,7 +188,10 @@ a
   justify-content: center
   padding-left: 18px
   padding-right: 18px
-
+  @media screen and ( max-width: 784px )
+    padding-right: 0
+    padding-left: 0
+    
 .card
   max-width: 302px
   width: 100%
@@ -271,6 +274,7 @@ a
   padding: 15px 80px
   border-radius: 10px
   z-index: 1
+  max-width: 320px
   background-color: #0e9750
   transition: .3s all ease
   &:hover
@@ -702,7 +706,11 @@ form
 
 .filter
   max-width: 300px
-
+.card-footer
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
 .cards-catalog
   max-width: 924px
   width: 100%
@@ -904,3 +912,60 @@ form
     color: #191919
     font-family: "Montserrat", sans-serif
     font-weight: 400
+@media screen and ( max-width: 650px )
+  p
+    margin: 0
+  .price
+    font-size: 18px
+  .card-footer > a
+    font-size: 18px
+  .card-name
+    font-size: 16px
+    margin-top: 16px
+    margin-bottom: 6px
+  .cardwrap
+    gap: 18px
+  .card 
+    margin-top: 0
+    margin-bottom: 0
+    &:hover
+      transform: scale(1)
+    .text-code
+      font-weight: 300
+      margin-bottom: 10px
+    .text-code,.code
+      font-size: 12px
+    .text-producer,.producer
+      font-size: 14px
+  .in-katalog-block
+    padding: 30px 0
+  .top-of-sells-h4
+    margin-bottom: 27px
+    font-size: 24px
+  .info-mini-block
+    padding: 0
+    border: unset
+    &:hover
+      border: unset
+    img
+      height: 100%
+      width: auto
+  .info-h2
+    font-size: 24px
+    margin-top: 0
+    margin-bottom: 23px
+  .info-h3
+    margin-bottom: 8px
+    font-size: 16px
+  .info-text
+    font-size: 12px
+  .banner
+    padding-left: 18px
+    padding-right: 18px
+    padding-top: 76px
+    padding-bottom: 76px
+    margin-bottom: 48px
+  .banner-h1
+    font-size: 20px
+  .banner-text
+    font-size: 14px
