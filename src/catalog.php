@@ -15,8 +15,8 @@ $cat_args = array(
 $filters = get_terms($cat_args);
 $name = $filters_cat->name;
 $filter_cat = array();
-$min = 0; 
-$max = 0;
+$min = (int)get_field("min-price"); 
+$max = (int)get_field("max-price");
 $i = 0;
 foreach ($_GET as $param) {
   if((isset($_GET["min-price"]) && $param == $_GET["min-price"])) {
@@ -32,9 +32,6 @@ foreach ($_GET as $param) {
   }
   $filter_cat[$i] = $param;
   $i++;
-}
-if(!isset($_GET['max-price'])){
-  $max = 100000000000;
 }
 if($min < 0) {
   $min = 0;

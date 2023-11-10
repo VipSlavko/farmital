@@ -291,6 +291,8 @@ a
   display: flex
   justify-content: center
   padding-bottom: 100px
+  padding-right: 18px
+  padding-left: 18px
 
 .left-block
   max-width: 592px
@@ -310,11 +312,11 @@ p.contacts-people
   font-weight: bold
   padding-right: 5px
   display: inline-block
-  margin-bottom: 29px
   margin-top: 0px
 p.volodya-i-katuha
   font-size: 20px
   display: inline-block
+  margin-bottom: 29px
 
 p.hours-of-work
   font-weight: bold
@@ -942,13 +944,16 @@ form
   .top-of-sells-h4
     margin-bottom: 27px
     font-size: 24px
+  .info-block
+    padding-left: 18px
+    padding-right: 18px
   .info-mini-block
     padding: 0
     border: unset
     &:hover
       border: unset
     img
-      height: 100%
+      height: 50px
       width: auto
   .info-h2
     font-size: 24px
@@ -969,3 +974,27 @@ form
     font-size: 20px
   .banner-text
     font-size: 14px
+@media screen and ( max-width: 790px )
+  .contacts
+    &-h1
+      margin-bottom: 20px
+      font-size: 24px
+      &-block
+        padding-bottom: 0
+        padding-top: 0
+  .contact-block 
+    flex-direction: column
+    padding-right: 0
+    padding-left: 0
+    .left-block
+      max-width: 100%
+      max-width: 100%
+    .right-block
+      padding: 0
+      border: unset
+      border-width: 0
+      margin-top: 45px
+      padding-left: 18px
+      padding-right: 18px
+      max-width: 100%
+      width: 100%
