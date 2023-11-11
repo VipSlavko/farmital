@@ -42,8 +42,10 @@ $category_post_count = $query->found_posts;
             <p class="price-nicetile"><?php echo $product->get_price_html(); ?></p>
             <p class="producer-nicetile">Виробник: <?php echo $product->get_attribute("producer"); ?></p>
             <p class="code-nicetile">Товар: <?php if(!$product->is_in_stock()) {echo 'не';} ?> в наявності</p>
-            <p class="response"><?php echo $category_post_count ?> відгуків</p>
-            <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
+            <div class="response-group">
+              <p class="response"><?php echo $category_post_count ?> відгуків</p>
+              <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
+            </div>
             <?php echo $product->get_short_description(); ?>
             <div class="buy-block">
               <!-- <select class="select-nicetile" name="form"> 

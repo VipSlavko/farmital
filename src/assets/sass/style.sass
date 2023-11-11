@@ -480,7 +480,7 @@ form
       margin-right: 15px !important
 
 .top-info-nicetile
-  padding: 70px 0
+  padding: 70px 18px
   display: flex
   flex-wrap: wrap
   gap: 50px
@@ -492,8 +492,8 @@ form
     width: 100%
 .right-info-nicetile
   flex: 0 1 calc( 50% - 50px )
-
-
+  h6
+    padding: 0 !important
 .image-nicetile
   display: block
   margin: 0 auto
@@ -521,6 +521,7 @@ form
   color: #191919
   font-weight: 100
   font-size: 15px
+  margin-bottom: 16px
 
 .response
   margin: 0
@@ -535,10 +536,13 @@ form
   font-weight: 500
   font-size: 17px
   text-decoration: underline
+  display: inline-block
+  margin-bottom: 20px
   &:hover
     text-decoration: none
 .right-info-nicetile
   h3
+    margin-top: 0
     margin-bottom: 7px
     color: #191919
     font-weight: 600
@@ -550,31 +554,36 @@ form
     font-weight: 400
     font-size: 17px
     padding: 0 30px
+    &:last-child
+      margin-bottom: 16px
     +media(769)
       padding: 0
 .main-info-block-nicetile
+  padding-left: 18px
+  padding-right: 18px
   h2,h3,h4,h5
     margin-bottom: 7px
     color: #191919
     font-weight: 600
     font-size: 25px
     padding: 0 30px
-    +media(769)
-      padding: 0
   h6
     margin: 5px 0
     color: #191919
     font-weight: 400
     font-size: 17px
-    padding: 0 30px
-    +media(769)
-      padding: 0
+    padding: 0 !important
 .buy-block
   display: flex
   flex-wrap: wrap
   justify-content: left
   padding-top: 20px 
-
+.response-group
+  *
+    margin-bottom: 0
+  display: flex
+  align-items: center
+  margin-bottom: 16px
 .a-nicetile
   color: #fff
   text-align: right
@@ -1143,3 +1152,25 @@ form
   margin-top: 31px
   margin-right: 18px
   margin-left: 18px
+@media screen and ( max-width: 850px )
+  .top-info-nicetile
+    flex-direction: column
+    gap: 20px
+    padding-top: 23px
+    .left-image-nicetile
+      margin: 0
+      max-width: 89.444444% 
+@media screen and ( max-width: 500px )      
+  .top-info-nicetile
+    h1
+      font-size: 16px
+    p.price-nicetitle
+      font-size: 24px
+    p.producer-nicetile
+      font-size: 12px !important
+    .left-image-nicetile
+      margin: 0
+      max-width: 100%
+    .code-nicetile
+      font-size: 12px
+      margin-bottom: 20px
