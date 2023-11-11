@@ -46,10 +46,10 @@ $category_post_count = $query->found_posts;
             <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
             <?php echo $product->get_short_description(); ?>
             <div class="buy-block">
-              <select class="select-nicetile" name="form"> 
+              <!-- <select class="select-nicetile" name="form"> 
                 <option value="Таблетки">Таблетки</option>
                 <option value="Саше(Порошок)">Саше(Порошок)</option>
-              </select>
+              </select> -->
               <a class="a-nicetile popup-link" href="#popup">купити</a>
             </div>
           </div>

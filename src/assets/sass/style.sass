@@ -483,16 +483,15 @@ form
   padding: 70px 0
   display: flex
   flex-wrap: wrap
-  justify-content: center
+  gap: 50px
 
-.left-image-nicetile 
-  width: 500px
-
+.left-image-nicetile
+  flex: 0 1 calc( 50% - 50px )
+  width: 100%
+  img
+    width: 100%
 .right-info-nicetile
-  max-width: 560px
-  padding: 10px 0 0 10px 
-  +media(1025)
-    padding: 0 0 0 50px 
+  flex: 0 1 calc( 50% - 50px )
 
 
 .image-nicetile
@@ -500,21 +499,24 @@ form
   margin: 0 auto
 
 .h1-nicetile
+  padding-top: 0
   margin-top: 0
   color: #191919
   font-weight: 600
-  font-size: 32px
-
+  font-size: 24px
+  margin-bottom: 17px
 .price-nicetile
   color: #009146
   font-weight: 600
-  font-size: 27px
+  font-size: 24px
+  margin-bottom: 15px
 
 .producer-nicetile
   color: #191919
   font-weight: 500
-  font-size: 17px
-
+  font-size: 18px
+  font-family: "Montserat", sans-serif  
+  margin-bottom: 16px
 .code-nicetile
   color: #191919
   font-weight: 100
