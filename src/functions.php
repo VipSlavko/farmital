@@ -338,17 +338,22 @@ function get_reviews_html($limit = 5) {
         'post_status' => 'publish', // Статус опублікованих постів
         'posts_per_page' => -1 // Показувати всі пости в категорії
     );
-    
     $query = new WP_Query($args);
     $category_post_count = $query->found_posts; 
     $pages = $category_post_count / $limit;
     $pages = ($pages < 1 && $pages > 0) ? 1 : $pages;
+    $offset = ($current_page - 1) * $limit;
+    $limit_page = $limit;
+    if(isset($_GET['all'])) {
+        $offset = 0;
+        $limit_page = -1;
+    }
     $reviews = get_posts(array(
         "category_name" => "reviews",
-        "order" => "DESC",
+        "order" => "ASC",
         "order_by" => "date",
-        "posts_per_page" => $limit,
-        "offset" => ($current_page - 1) * $limit,
+        "posts_per_page" => $limit_page,
+        "offset" => $offset
 ));
     $template = '
     <div class="reviews__list">';
@@ -365,6 +370,9 @@ function get_reviews_html($limit = 5) {
             </p>
         </article>';
         wp_reset_postdata();
+    }
+    if(!isset($_GET['all'])) {
+        $template .= '<a href="'.esc_url(home_url("/reviews?all=all")).'" class="more">більше</a>';
     }
     $template .= '<div class="pagination">';
     if($current_page > 1) {
