@@ -1136,6 +1136,13 @@ form
         margin-top: 0
         span
           font-size: 16px
+.pc
+  display: block
+.mobile
+  display: none
+.main-info-block-nicetile
+    h1,h2,h3,h4,h5
+      padding-left: 0
 .more
   display: none
   @media screen and ( max-width: 890px )
@@ -1152,6 +1159,10 @@ form
   margin-top: 31px
   margin-right: 18px
   margin-left: 18px
+  .pc
+    display: none
+  .mobile
+    display: block
 @media screen and ( max-width: 850px )
   .top-info-nicetile
     flex-direction: column
@@ -1159,9 +1170,11 @@ form
     padding-top: 23px
     .left-image-nicetile
       margin: 0
-      max-width: 89.444444% 
+      max-width: 60% 
 @media screen and ( max-width: 500px )      
   .top-info-nicetile
+    margin-bottom: 49px
+    padding-bottom: 0
     h1
       font-size: 16px
     p.price-nicetitle
@@ -1174,3 +1187,55 @@ form
     .code-nicetile
       font-size: 12px
       margin-bottom: 20px
+    h1,h2,h3,h4,h5
+      font-size: 12px
+      margin-bottom: 6px
+    h6
+      font-size: 12px
+      &:not(:last-child)
+        margin-bottom: 4px
+    .buy-block
+      padding-top: 0
+      a
+        max-width: 100%
+        width: 100%
+        text-align: center
+        padding: 12px 0
+  .main-info-block-nicetile
+    h1,h2,h3,h4,h5
+      font-size: 16px
+      padding-left: 0
+      padding-right: 0
+      margin-bottom: 19px
+      margin-top: 0
+    h6
+      font-size: 12px
+      margin-top: 0
+      &:not(:last-child)
+        margin-bottom: 12px
+      &:last-child
+        margin-bottom: 30px
+.crumbs
+  margin-left: 0
+  padding-right: 0
+  padding-left: 0
+  margin-right: 0
+  ol
+    margin-right: 0
+    margin-left: 0
+    padding-right: 18px
+    margin-top: 0
+    padding-left: 18px
+  *
+    font-size: 12px
+    a
+      margin-right: 0
+    &::before,&::after
+      display: none !important
+      content: none !important
+      padding: 0 !important
+      margin: 0 !important
+      width: 0 !important 
+      height: 0 !important
+    ol > li:last-child > a
+      color: #009146

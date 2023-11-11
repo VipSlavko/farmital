@@ -25,7 +25,16 @@ $args = array(
   'post_status' => 'publish', // Статус опублікованих постів
   'posts_per_page' => -1 // Показувати всі пости в категорії
 );
-
+$in_stock = !$product->is_in_stock() ? 'Товар: не в наявності' : 'Товар: в наявності';
+$code = 'Код товару: '.$product->get_attribute("code");
+$the_slug = 'not-is-stock';
+$args = array(
+  'name'        => $the_slug,
+  'post_type'   => 'post',
+  'post_status' => 'publish',
+  'numberposts' => 1
+);
+$is_stock = (boolean)get_posts($args)[0]->post_content; 
 $query = new WP_Query($args);
 $category_post_count = $query->found_posts; 
 ?>
@@ -35,13 +44,14 @@ $category_post_count = $query->found_posts;
             $image_url = wp_get_attachment_url($product->get_image_id());
             $id = $product->ID;
             ?>
+            <h1 class="h1-nicetile mobile"><?php echo the_title(); ?></h1>
             <img class="image-nicetile" src="<?php echo $image_url; ?>" alt="<?php echo the_title(); ?>">
           </div>
           <div class="right-info-nicetile">
-            <h1 class="h1-nicetile"><?php echo the_title(); ?></h1>
+            <h1 class="h1-nicetile pc"><?php echo the_title(); ?></h1>
             <p class="price-nicetile"><?php echo $product->get_price_html(); ?></p>
             <p class="producer-nicetile">Виробник: <?php echo $product->get_attribute("producer"); ?></p>
-            <p class="code-nicetile">Товар: <?php if(!$product->is_in_stock()) {echo 'не';} ?> в наявності</p>
+            <p class="code-nicetile"><?php if($is_stock) { echo $in_stock;} else {echo $code;} ?></p>
             <div class="response-group">
               <p class="response"><?php echo $category_post_count ?> відгуків</p>
               <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
