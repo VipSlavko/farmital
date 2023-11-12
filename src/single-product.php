@@ -51,7 +51,7 @@ $category_post_count = $query->found_posts;
             <h1 class="h1-nicetile pc"><?php echo the_title(); ?></h1>
             <p class="price-nicetile"><?php echo $product->get_price_html(); ?></p>
             <p class="producer-nicetile">Виробник: <?php echo $product->get_attribute("producer"); ?></p>
-            <p class="code-nicetile"><?php if($is_stock) { echo $in_stock;} else {echo $code;} ?></p>
+            <p class="code-nicetile"><?php if($is_stock || !isset($code)) { echo $in_stock;} else {echo $code;} ?></p>
             <div class="response-group">
               <p class="response"><?php echo $category_post_count ?> відгуків</p>
               <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
