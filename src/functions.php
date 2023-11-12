@@ -166,10 +166,14 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   <div class="images">
                     <img class="card-image" src="'.$image_url.'" alt="'.$product_name.'" />
                   </div>
-                  <p class="card-name">'.$product->name.'</p>
-                  <p class="text-code">код товару: 
+                  <p class="card-name">'.$product->name.'</p>';
+                  if(!empty($product->get_attribute('code')))
+                  {
+                    $template .= '<p class="text-code">код товару: 
                     <p class="code">'.$product->get_attribute('code').'</p>
-                  </p>
+                  </p>';
+                  }
+                  $template .= '
                   <p class="text-producer">Виробник:
                     <p class="producer">'.$product->get_attribute('producer').'</p>
                   </p>
@@ -212,10 +216,14 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
               <figcaption> 
                 <div class="cardimg">
                   <div class="images"><img class="card-image" src="'.$image_url.'" alt="'.$product_name.'"/></div>
-                  <p class="card-name">'.$product_name.'</p>
-                  <p class="text-code">код товару: 
+                  <p class="card-name">'.$product_name.'</p>';
+                  if(!empty($product->get_attribute('code')))
+                  {
+                    $template .= '<p class="text-code">код товару: 
                     <p class="code">'.$product->get_attribute('code').'</p>
-                  </p>
+                  </p>';
+                  }
+                  $template .= '
                   <p class="text-producer">Виробник:
                     <p class="producer">'.$product->get_attribute('producer').'</p>
                   </p>
@@ -274,10 +282,14 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
             <figure class="card">
               <figcaption> 
                   <div class="images"><img class="card-image" src="'.$image_url.'" alt="'.$product_name.'"/></div>
-                  <p class="card-name">'.$product_name.'</p>
-                  <p class="text-code">код товару: 
+                  <p class="card-name">'.$product_name.'</p>';
+                  if(!empty($product->get_attribute('code')))
+                  {
+                    $template .= '<p class="text-code">код товару: 
                     <p class="code">'.$product->get_attribute('code').'</p>
-                  </p>
+                  </p>';
+                  }
+                  $template .= '
                   <p class="text-producer">Виробник:
                     <p class="producer">'.$product->get_attribute('producer').'</p>
                   </p>
