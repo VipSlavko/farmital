@@ -1,7 +1,7 @@
 <?php 
 add_action('wp_enqueue_scripts', function(){
     wp_enqueue_style('style', get_path('/assets/css/style.min.css'), array(), 'null', false);
-    wp_enqueue_script('scripr', get_path('/assets/js/script.js'), array(), 'null', true);
+    wp_enqueue_script('scripr', get_path('/assets/js/script.min.js'), array(), 'null', true);
 });
 	
 	

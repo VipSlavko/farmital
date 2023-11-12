@@ -29,6 +29,16 @@
         </div>
       </div>
     </footer>
+    <nav class="menu mobile-menu">
+      <div class="menu-header">
+        <h3 class="menu__title">меню</h3>
+        <a href="#" class="menu__close">+</a>
+      </div>
+      <div class="menu__content">
+        <?php echo get_menu(); ?>
+        <?php echo get_phones(); ?>
+      </div>
+    </nav>
   </body>
   <?php wp_footer(); ?>
 </html>
