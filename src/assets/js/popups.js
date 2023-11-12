@@ -10,7 +10,7 @@ const timeout = 800
 export function popups() {
     if(poupLinks.length > 0) {
         for (let index = 0; index < poupLinks.length; index++){
-            const popupLink = poupLinks[index]
+            const popupLink = popupLink[index]
             popupLink.addEventListener("click", function (e){
                 const popupName = popupLink.getAttribute('href').replace('#', '')
                 const curentPopoup = document.getElementById(popupName)

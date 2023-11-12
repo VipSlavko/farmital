@@ -1,11 +1,11 @@
 export function burger() {
     const burgerButton = document.querySelector(".burger-menu");
     const menu = document.querySelector(".menu");
-    const menu_close = document.querySelector(".menu__close");
-    burgerButton.addEventListener("click", function () {
+    const menuClose = document.querySelector(".menu__close");
+    burgerButton.addEventListener("click", toggleMenu);
+    menuClose.addEventListener("click", toggleMenu); 
+    function toggleMenu() {
       menu.classList.toggle("active");
-    });
-    menu_close.addEventListener("click", function () {
-      menu.classList.toggle("active");
-    }); 
+      document.body.classList.toggle("lock");
+    }
 }
