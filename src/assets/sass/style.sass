@@ -721,6 +721,14 @@ form
 
 .filter
   max-width: 300px
+  .ranges
+    display: flex
+    
+  input[type="range"]
+    display: inline-block
+    width: 50%
+  #min-range
+    transform: rotate(180deg)
 .card-footer
   display: flex
   align-items: center
@@ -754,12 +762,16 @@ form
   color: #fff
   font-size: 20px
   font-weight: 500
-  background-color: #009146
+  background-color: #0e9750
   padding: 10px 70px
   max-width: 300px
   margin-bottom: 15px
   margin-top: 20px
   cursor: pointer
+  transition: .3s all ease
+  &:hover
+    background-color: #15b361
+    border-color: #15b361
 .def-catalog
   display: block
   color: #009146
@@ -774,7 +786,11 @@ form
   border-radius: 5px
   border: 2px solid #0e9750
   cursor: pointer
-
+  transition: .3s all ease
+  &:hover
+    background-color: #15b361
+    border-color: #15b361
+    color: #fff
 .price-catalog,
 .form-release,
 .recept,
@@ -811,9 +827,26 @@ form
   color: #009146
 
 .checkbox-catalog 
-  height: 20px
-  width: 20px
-
+  height: 15px
+  width: 15px
+  position: relative
+  visibility: hidden
+  z-index: 1
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  &::before
+    width: 15px
+    visibility: visible
+    height: 15px
+    content: ""
+    display: block
+    border: 1px solid #009146
+    border-radius: 4px
+    transition: .3s all ease
+  &:checked
+    &::before
+      background-color: #009146
 .checkbox-text
   font-size: 22px
   word-wrap: none

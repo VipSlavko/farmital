@@ -48,9 +48,13 @@ if($max <= $min) {
             <form action="<?php echo esc_url(home_url("catalog")); ?>" method="get">
             <div class="price-catalog">
               <h2 class="h2-price">Ціна</h2>
-              <input class="price-num" type="number" name="min-price" value="<?php echo $min; ?>">
+              <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
               <span class="price-line">-</span>
-              <input class="price-num" type="number" name="max-price" value="<?php echo $max; ?>">
+              <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+              <div class="ranges">
+                <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
+                <input type="range" name="max" id="max-range" value="<?php echo $max; ?>">
+              </div>
             </div>
             <?php
             $i = 0;
