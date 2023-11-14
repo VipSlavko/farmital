@@ -723,12 +723,25 @@ form
   max-width: 300px
   .ranges
     display: flex
-    
+    margin-top: 9px
   input[type="range"]
     display: inline-block
     width: 50%
+    margin: 0
+    --wibkit-appearance: none
+    appearance: none
+    background: #999999
+    cursor: pointer
+    outline: none
+    border: none
+    height: 2px
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+      background: red
   #min-range
     transform: rotate(180deg)
+  #max-range
+    margin-left: -3px
 .card-footer
   display: flex
   align-items: center

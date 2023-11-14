@@ -53,7 +53,7 @@ if($max <= $min) {
               <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
               <div class="ranges">
                 <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
-                <input type="range" name="max" id="max-range" value="<?php echo $max; ?>">
+                <input type="range" name="max" id="max-range" min="<?php echo $min ?>" value="<?php echo $max; ?>">
               </div>
             </div>
             <?php
