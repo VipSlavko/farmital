@@ -27,6 +27,9 @@ foreach ($_GET as $param) {
     $max = $param;
     continue;
   }
+  if(isset($_GET['all-page'])) {
+    continue;
+  }
   if((isset($_GET["current-page"]) && $param == $_GET["current-page"])) {
     continue;
   }
@@ -53,9 +56,11 @@ if($max <= $min) {
             <form action="<?php echo esc_url(home_url("catalog")); ?>" method="get">
             <div class="price-catalog">
               <h2 class="h2-price">Ціна</h2>
-              <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
-              <span class="price-line">-</span>
-              <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+              <div class="filter-price">
+                <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
+                <span class="price-line"></span>
+                <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+              </div>
               <div class="ranges">
                 <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
                 <input type="range" name="max" id="max-range" min="<?php echo $min ?>" value="<?php echo $max; ?>">
@@ -112,9 +117,11 @@ if($max <= $min) {
                 <img src="<?php echo get_path("/assets/img/arrow2.svg"); ?>">
               </div>
               <div class="filter-body">
-                <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
-                <span class="price-line">-</span>
-                <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+                <div class="filter-price">
+                  <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
+                  <span class="price-line">-</span>
+                  <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+                </div>
                 <div class="ranges">
                   <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
                   <input type="range" name="max" id="max-range" min="<?php echo $min ?>" value="<?php echo $max; ?>">

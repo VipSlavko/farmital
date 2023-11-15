@@ -708,11 +708,14 @@ form
   padding-top: 120px
   padding-right: 100px
   font-size: 20px
-
+.mail:hover
+  a::before
+    background: url('../img/email-hover.svg') no-repeat center center
 .mail-popup
   padding-top: 70px
   padding-left: 30px
 .main-filter
+  gap: 20px
   .card:first-child
     margin-left: 0
   display: flex
@@ -765,6 +768,7 @@ form
   max-width: 924px
   width: 100%
   display: flex
+  gap: 10px
   align-items: stretch
   flex-wrap: wrap
 .pagination
@@ -827,16 +831,24 @@ form
   border-bottom: 1px solid #009146
 .price-catalog
   padding-bottom: 10px
+  .filter-price
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 16px
+    padding-right: 0
+    input
+      display: block
 .price-num
-  padding: 5px 7px
-  max-width: 60px
-
+  padding: 5px 0px
+  outline: none
+  text-align: center
+  width: 70px
+  border: 1px solid #999999
 .price-line
-  padding: 0 0px
   width: 20px
-  font-size: 50px
-  margin: 0px 30px
-  display: inline-block
+  height: 2px
+  background-color: #191919
 
 .h2-price
   font-size: 25px
@@ -1367,6 +1379,7 @@ nav.mobile-menu.menu
         max-width: fit-content
 @media screen and ( max-width: 908px )
   .main-filter
+    gap: 0
     flex-direction: column
     .filter-header
       display: flex
@@ -1461,3 +1474,14 @@ nav.mobile-menu.menu
       font-weight: 500
     .filter-body
       margin-bottom: 10px
+@media screen and ( max-width: 890px )
+  .main-filter
+    .more
+      margin-top: 0
+      max-width: 100%
+      width: 100%
+    .pagination
+      display: none
+    .more
+      display: block
+  

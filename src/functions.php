@@ -18,6 +18,15 @@ add_action( 'admin_enqueue_scripts', 'load_bloody_tinymce' );
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 add_theme_support( 'custom-logo');
+function generate_url(int | string $page_number, string $key = 'current-page'): string {
+    global $wp;
+    $old = add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
+    $new = add_query_arg(array(
+        $key => $page_number
+
+    ), $old);
+    return $new;
+}
 function get_path($path) {
     return get_template_directory_uri() . $path;
 }
@@ -182,6 +191,7 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   <div class="card-footer">
                   <p class="price">'.$product->price.' грн/уп</p>
                   <a class="btn popup-link" href="#popup">у кошик</a>
+                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
                   </div>
                 </div>
               </figcaption>
@@ -229,6 +239,7 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   </p>
                   <div class="stick"></div>
                   <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
+                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
                 </div>
               </figcaption>
             </figure>
@@ -262,6 +273,11 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
         $pages = $products_count / $limit;
         $pages = ($pages < 1) ? 1 : $pages;
         $current_page = isset($_GET["current-page"]) ? (int)$_GET["current-page"] : 1;
+        if(isset($_GET["all-page"]))
+        {
+            $limit = -1;
+            $current_page = 1;
+        }
         $products = wc_get_products(array(
             "category" => $cat_slag,
             'limit' => $limit,
@@ -295,21 +311,13 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   </p>
                   <div class="stick"></div>
                   <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
+                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
               </figcaption>
             </figure>
             ';
             }
         }
         $template .= '<div class="pagination">';
-        function generate_url(int $page_number): string {
-            global $wp;
-            $old = add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
-            $new = add_query_arg(array(
-                "current-page" => $page_number
-
-            ), $old);
-            return $new;
-        }
     if($current_page > 1) {
         $prev = $current_page - 1;
         $template .= '<a class="pagination__item" href="'.generate_url($prev).'"><</a>';
@@ -322,9 +330,11 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
         $next = $current_page + 1;
         $template .= '<a class="pagination__item" href="'.generate_url($next).'">></a>';
     }
-    $template .= '</div>
-        </div>
-        ';
+    $template .= '</div>';
+    if(!isset($_GET['all-page'])) {
+        $template .= '<a href="'.generate_url("all", "all-page").'" class="more">більше</a>';
+    }
+    $template .= '</div>';
     }
     return $template;
 }
