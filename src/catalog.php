@@ -42,7 +42,8 @@ if($max <= $min) {
 ?>
 <?php echo get_header(); ?>
       <div class="main-filter">
-      <div class="filter-head mobile">
+          <div class="filter-head mobile">
+            <img src="<?php echo get_path("/assets/img/option.svg") ?>" alt="">
             <h1 class="h1-filter"><?php echo $name; ?></h1>
           </div>
         <div class="filter">
@@ -101,20 +102,27 @@ if($max <= $min) {
         </div>
         <div class="filter mobile">
           <div class="filter-content">
-          <h1 class="h1-filter"><?php echo $name; ?></h1>
+            <div class="filter-head">
+              <h1 class="h1-filter"><?php echo $name; ?></h1>
+            </div>
             <form action="<?php echo esc_url(home_url("catalog")); ?>" method="get">
             <div class="price-catalog">
-              <h2 class="h2-price">Ціна</h2>
-              <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
-              <span class="price-line">-</span>
-              <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
-              <div class="ranges">
-                <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
-                <input type="range" name="max" id="max-range" min="<?php echo $min ?>" value="<?php echo $max; ?>">
+              <div class="filter-header">
+                <h2 class="h2-price">Ціна</h2>
+                <img src="<?php echo get_path("/assets/img/arrow2.svg"); ?>">
+              </div>
+              <div class="filter-body">
+                <input class="price-num" type="number" id="min-input" name="min-price" value="<?php echo $min; ?>">
+                <span class="price-line">-</span>
+                <input class="price-num" type="number" id="max-input" name="max-price" value="<?php echo $max; ?>">
+                <div class="ranges">
+                  <input type="range" name="min" id="min-range" value="<?php echo $min; ?>">
+                  <input type="range" name="max" id="max-range" min="<?php echo $min ?>" value="<?php echo $max; ?>">
+                </div>
               </div>
             </div>
             <?php
-            $i = 0;
+            $i = $i + 1;
             foreach($filters as $filter_item) { 
               $cat_args = array(
                 'orderby'    => 'ID',
@@ -126,23 +134,28 @@ if($max <= $min) {
               $filter = get_terms($cat_args);
               ?>
             <div class="form-release"> 
-              <h3 class="h3-release"><?php echo $filter_item->name; ?></h3>
-              <table> 
-                <?php
-                foreach($filter as $item) {
-                  ?>
-                <tr>
-                  <td>
-                    <label class="checkbox-text" for="<?php echo $i; ?>">
-                    <input class="checkbox-catalog" <?php if(isset($_GET[$item->slug])) {echo 'checked'; } ?> value="<?php echo $item->slug ?>" type="checkbox" name="<?php echo $item->slug; ?>" id="<?php echo $i; ?>">
-                    <?php echo $item->name; ?>
-                  </label>
-                  </td>
-                </tr>
-                <?php
-                $i++; 
-                } ?>
-              </table>
+              <div class="filter-header">
+                <h3 class="h3-release"><?php echo $filter_item->name; ?></h3>
+                <img src="<?php echo get_path("/assets/img/arrow2.svg"); ?>">
+              </div>
+              <div class="filter-body">
+                <table>
+                  <?php
+                  foreach($filter as $item) {
+                    ?>
+                  <tr>
+                    <td>
+                      <label class="checkbox-text" for="<?php echo $i; ?>">
+                      <input class="checkbox-catalog" <?php if(isset($_GET[$item->slug])) {echo 'checked'; } ?> value="<?php echo $item->slug ?>" type="checkbox" name="<?php echo $item->slug; ?>" id="<?php echo $i; ?>">
+                      <?php echo $item->name; ?>
+                    </label>
+                    </td>
+                  </tr>
+                  <?php
+                  $i++;
+                  } ?>
+                </table>
+              </div>
             </div>
             <?php
           } ?>
