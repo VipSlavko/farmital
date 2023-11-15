@@ -191,7 +191,7 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   <div class="card-footer">
                   <p class="price">'.$product->price.' грн/уп</p>
                   <a class="btn popup-link" href="#popup">у кошик</a>
-                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
+                  <a class="btn popup-link" href='.$product->get_permalink().'>До товару</a>
                   </div>
                 </div>
               </figcaption>
@@ -239,7 +239,7 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   </p>
                   <div class="stick"></div>
                   <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
-                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
+                  <a class="btn popup-link" href='.$product->get_permalink().'>До товару</a>
                 </div>
               </figcaption>
             </figure>
@@ -311,7 +311,7 @@ function get_products(array| string $cat_slag = 'all', $limit = 6) {
                   </p>
                   <div class="stick"></div>
                   <p class="price">'.$product->price.' грн/уп</p><a class="btn popup-link" href="#popup">у кошик </a>
-                  <a class="btn popup-link" href='.get_permalink($product->ID).'>До товару</a>
+                  <a class="btn popup-link" href='.$product->get_permalink().'>До товару</a>
               </figcaption>
             </figure>
             ';
