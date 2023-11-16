@@ -132,7 +132,7 @@ function get_copyright() {
     $template = "";
     foreach($copyrights as $copyright) {
         setup_postdata($copyright);
-        $content = get_the_content();
+        $content = $copyright->post_content;
         $template = wp_strip_all_tags($content);
         wp_reset_postdata();
     }
