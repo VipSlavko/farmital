@@ -127,6 +127,11 @@ function get_sociables($in_popub = false) {
 function get_logo() {
     return get_custom_logo();
 }
+function get_current_page_template_name() {
+    $template = get_page_template_slug();
+    $template = str_replace('.php', '', basename($template));
+    return $template;
+}
 function get_copyright() {
     $copyrights = get_posts(array("name" => "copyright"));
     $template = "";

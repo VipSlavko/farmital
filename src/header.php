@@ -18,9 +18,16 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["review"])) {
 <!DOCTYPE html>
 <html <?php echo get_language_attributes(); ?> >
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php 
+    $template_name = get_current_page_template_name();
+    $config = get_config();
+    if(isset($config[$template_name]))
+    {
+      echo $config[$template_name];
+    } else {
+      echo $config['standart'];
+    }
+     ?>
     <?php wp_head(); ?>
   </head>
   <body>
