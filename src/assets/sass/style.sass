@@ -631,11 +631,11 @@ form
   z-index: 1
   transition: all 0.8s ease 0s
 
-.popup:target
+.popup.open
   opacity: 1
   visibility: visible
 
-.popup:target .popup-content
+.popup.open .popup-content
   transform: translate(0, 0)
   opacity: 1
 

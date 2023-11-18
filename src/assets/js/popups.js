@@ -1,4 +1,4 @@
-const poupLinks = document.querySelectorAll('.popup-link')
+const poupLinks = document.querySelectorAll('[href="#popup"]')
 const body = document.querySelector('body')
 const lockPadding = document.querySelectorAll('.lock-padding')
 const popupCloseIcon = document.querySelectorAll('.close-popup')
@@ -10,7 +10,8 @@ const timeout = 800
 export function popups() {
     if(poupLinks.length > 0) {
         for (let index = 0; index < poupLinks.length; index++){
-            const popupLink = popupLink[index]
+            const popupLink = poupLinks[index]
+            console.log(popupLink);
             popupLink.addEventListener("click", function (e){
                 const popupName = popupLink.getAttribute('href').replace('#', '')
                 const curentPopoup = document.getElementById(popupName)
@@ -52,7 +53,7 @@ function popupClose(popupActive, doUnLock = true){
     if(unlock){
         popupActive.classList.remove('open')
         if(doUnLock){
-            bodyLock()
+            bodyUnLock()
         }
     }
 }
@@ -65,7 +66,7 @@ function bodyLock() {
             el.style.paddingRight = lockPaddingValue
         }
     }
-    body.style.paddingRight = lockPaddingValue
+   // body.style.paddingRight = lockPaddingValue
     body.classList.add('lock')
 
     unlock = false 
