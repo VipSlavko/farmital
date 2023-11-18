@@ -28,12 +28,6 @@ $args = array(
 $in_stock = !$product->is_in_stock() ? 'Товар: не в наявності' : 'Товар: в наявності';
 $code = 'Код товару: '.$product->get_attribute("code");
 $the_slug = 'not-is-stock';
-$args = array(
-  'name'        => $the_slug,
-  'post_type'   => 'post',
-  'post_status' => 'publish',
-  'numberposts' => 1
-);
 $is_stock = (boolean)get_posts($args)[0]->post_content; 
 $query = new WP_Query($args);
 $category_post_count = $query->found_posts; 
@@ -53,7 +47,7 @@ $category_post_count = $query->found_posts;
             <p class="code-nicetile"><?php if($is_stock || !isset($code)) { echo $in_stock;} else {echo $code;} ?></p>
             <div class="response-group">
               <p class="response"><?php echo $category_post_count ?> відгуків</p>
-              <a class="view-all" href="<?php echo esc_url(home_url("/catalog")); ?>">переглянути усі</a>
+              <a class="view-all" href="<?php echo esc_url(home_url("/reviews")); ?>">переглянути усі</a>
             </div>
             <?php echo $product->get_short_description(); ?>
             <div class="buy-block">

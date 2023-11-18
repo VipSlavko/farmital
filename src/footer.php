@@ -4,6 +4,7 @@
       <p class="popup-h">Оформлення замовлення</p>
       <p class="popup-text">Щоб замовити продукт поздвоніть на данні номери:</p>
       <?php echo get_phones_list(); ?>
+      <?php echo get_sociables(); ?>
     </div>
   </div>
 </div>
