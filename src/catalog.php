@@ -47,7 +47,7 @@ if($max <= $min) {
       <div class="main-filter">
           <div class="filter-head mobile">
             <img src="<?php echo get_path("/assets/img/option.svg") ?>" alt="">
-            <h1 class="h1-filter"><?php echo $name; ?></h1>
+            <h2 class="h1-filter"><?php echo $name; ?></h2>
           </div>
         <div class="filter">
           <div class="filter-head">
@@ -108,7 +108,7 @@ if($max <= $min) {
         <div class="filter mobile">
           <div class="filter-content">
             <div class="filter-head">
-              <h1 class="h1-filter"><?php echo $name; ?></h1>
+              <h2 class="h1-filter"><?php echo $name; ?></h2>
             </div>
             <form action="<?php echo esc_url(home_url("catalog")); ?>" method="get">
             <div class="price-catalog">

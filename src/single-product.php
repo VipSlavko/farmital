@@ -44,7 +44,6 @@ $category_post_count = $query->found_posts;
             $image_url = wp_get_attachment_url($product->get_image_id());
             $id = $product->ID;
             ?>
-            <h1 class="h1-nicetile mobile"><?php echo the_title(); ?></h1>
             <img class="image-nicetile" src="<?php echo $image_url; ?>" alt="<?php echo the_title(); ?>">
           </div>
           <div class="right-info-nicetile">
